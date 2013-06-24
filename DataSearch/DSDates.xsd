@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DSDates" targetNamespace="http://tempuri.org/DSDates.xsd" xmlns:mstns="http://tempuri.org/DSDates.xsd" xmlns="http://tempuri.org/DSDates.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+        </Connections>
+        <Tables>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DSDates" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DSDates" msprop:Generator_DataSetName="DSDates">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Dates" msprop:Generator_UserTableName="Dates" msprop:Generator_RowDeletedName="DatesRowDeleted" msprop:Generator_TableClassName="DatesDataTable" msprop:Generator_RowChangedName="DatesRowChanged" msprop:Generator_RowClassName="DatesRow" msprop:Generator_RowChangingName="DatesRowChanging" msprop:Generator_RowEvArgName="DatesRowChangeEvent" msprop:Generator_RowEvHandlerName="DatesRowChangeEventHandler" msprop:Generator_TablePropName="Dates" msprop:Generator_TableVarName="tableDates" msprop:Generator_RowDeletingName="DatesRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="日期时间" msprop:Generator_UserColumnName="日期时间" msprop:Generator_ColumnPropNameInRow="日期时间" msprop:Generator_ColumnVarNameInTable="column日期时间" msprop:Generator_ColumnPropNameInTable="日期时间Column" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1">
+      <xs:selector xpath=".//mstns:Dates" />
+      <xs:field xpath="mstns:日期时间" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

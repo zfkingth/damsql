@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{34E1A369-60A6-4559-B448-9E38F18097E6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>hammergo.BLL</RootNamespace>
+    <AssemblyName>hammergo.BLL</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Debug\hammergo.BLL.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Release\hammergo.BLL.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApparatusBLL.cs" />
+    <Compile Include="ApparatusBLLBase.cs" />
+    <Compile Include="ApparatusTypeBLL.cs" />
+    <Compile Include="ApparatusTypeBLLBase.cs" />
+    <Compile Include="AppCollectionBLL.cs" />
+    <Compile Include="AppCollectionBLLBase.cs" />
+    <Compile Include="CalculateParamBLL.cs" />
+    <Compile Include="CalculateParamBLLBase.cs" />
+    <Compile Include="CalculateValueBLL.cs" />
+    <Compile Include="CalculateValueBLLBase.cs" />
+    <Compile Include="ConstantParamBLL.cs" />
+    <Compile Include="ConstantParamBLLBase.cs" />
+    <Compile Include="MessureParamBLL.cs" />
+    <Compile Include="MessureParamBLLBase.cs" />
+    <Compile Include="MessureValueBLL.cs" />
+    <Compile Include="MessureValueBLLBase.cs" />
+    <Compile Include="ProjectPartBLL.cs" />
+    <Compile Include="ProjectPartBLLBase.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RemarkBLL.cs" />
+    <Compile Include="RemarkBLLBase.cs" />
+    <Compile Include="RoleBLL.cs" />
+    <Compile Include="RoleBLLBase.cs" />
+    <Compile Include="SysUserBLL.cs" />
+    <Compile Include="SysUserBLLBase.cs" />
+    <Compile Include="TaskAppratusBLL.cs" />
+    <Compile Include="TaskAppratusBLLBase.cs" />
+    <Compile Include="TaskTypeBLL.cs" />
+    <Compile Include="TaskTypeBLLBase.cs" />
+    <Compile Include="TransCreator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ALGraph\ALGraph.csproj">
+      <Project>{6B4D92DA-B5A5-402E-B25D-39D359960E56}</Project>
+      <Name>ALGraph</Name>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\calculator\calculator.csproj">
+      <Project>{3142F2D7-9A05-480F-A4CE-804B61AD011D}</Project>
+      <Name>calculator</Name>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\DALFactory\DALFactory.csproj">
+      <Project>{32C73589-2277-4665-A170-55892F601D33}</Project>
+      <Name>DALFactory</Name>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\GlobalConfig\GlobalConfig.csproj">
+      <Project>{3d62488e-ebc5-45f3-8576-0db33ce74e7f}</Project>
+      <Name>GlobalConfig</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IDAL\IDAL.csproj">
+      <Project>{F638097C-843F-4F8A-A002-BB8EBA72BC8F}</Project>
+      <Name>IDAL</Name>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{50398B56-96C7-4FD4-A81A-467B34EDEF1F}</Project>
+      <Name>Model</Name>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\Tracking\Tracking.csproj">
+      <Project>{2A7B859C-88DF-4BB2-B4C1-452108EA8438}</Project>
+      <Name>Tracking</Name>
+      <Private>True</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
