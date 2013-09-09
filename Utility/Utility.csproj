@@ -93,6 +93,7 @@
     <Reference Include="DevExpress.XtraGrid.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
@@ -134,9 +135,8 @@
       <Private>True</Private>
     </ProjectReference>
     <ProjectReference Include="..\Model\Model.csproj">
-      <Project>{C2F416DE-8C6A-4B23-A4FF-1446D9163185}</Project>
+      <Project>{50398b56-96c7-4fd4-a81a-467b34edef1f}</Project>
       <Name>Model</Name>
-      <Private>True</Private>
     </ProjectReference>
     <ProjectReference Include="..\Tracking\Tracking.csproj">
       <Project>{2A7B859C-88DF-4BB2-B4C1-452108EA8438}</Project>

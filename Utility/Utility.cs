@@ -4,6 +4,8 @@ using System.Text;
 using System.Windows.Forms;
 using hammergo.Model;
 using hammergo.GlobalConfig;
+using System.Data.Linq;
+using System.Linq;
 
 namespace hammergo.Utility
 {
@@ -100,7 +102,11 @@ namespace hammergo.Utility
 
                appInfoList.Add(appInfo);
 
-               foreach (CalculateParam cp in appInfo.CalcParams)
+               var orderList = from item in appInfo.CalcParams
+                               orderby item.Order ascending
+                               select item;
+
+               foreach (CalculateParam cp in orderList)
                {
 
 
