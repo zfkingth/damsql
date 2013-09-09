@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{F6105CFB-485F-41BB-9F28-50A66C11E0B8}</ProjectGuid>
+    <ProjectGuid>{EED659F3-69F8-4344-81FE-3B7238CA6748}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>hammergo.DataSearch</RootNamespace>
-    <AssemblyName>hammergo.DataSearch</AssemblyName>
+    <RootNamespace>hammergo.DataExport</RootNamespace>
+    <AssemblyName>hammergo.DataExport</AssemblyName>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <OldToolsVersion>3.5</OldToolsVersion>
@@ -56,10 +56,10 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
     <OutputPath>bin\x86\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
     <DebugType>full</DebugType>
     <PlatformTarget>x86</PlatformTarget>
-    <CodeAnalysisLogFile>bin\Debug\hammergo.DataSearch.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisLogFile>bin\Debug\hammergo.DataExport.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
     <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
     <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
     <ErrorReport>prompt</ErrorReport>
@@ -67,7 +67,6 @@
     <CodeAnalysisRuleSetDirectories>;D:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
     <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
     <CodeAnalysisRuleDirectories>;D:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
-    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <OutputPath>bin\x86\Release\</OutputPath>
@@ -75,7 +74,7 @@
     <Optimize>true</Optimize>
     <DebugType>pdbonly</DebugType>
     <PlatformTarget>x86</PlatformTarget>
-    <CodeAnalysisLogFile>bin\Release\hammergo.DataSearch.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisLogFile>bin\Release\hammergo.DataExport.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
     <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
     <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
     <ErrorReport>prompt</ErrorReport>
@@ -86,17 +85,21 @@
     <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevExpress.Data.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Printing.v13.1.Core, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Utils.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraBars.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraEditors.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraPrinting.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraGrid.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraLayout.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraNavBar.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraTreeList.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraVerticalGrid.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v12.1, Version=12.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v12.1.Core, Version=12.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v12.1, Version=12.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraBars.v12.1, Version=12.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v12.1, Version=12.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGrid.v12.1, Version=12.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v12.1, Version=12.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraNavBar.v12.1, Version=12.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraTreeList.v12.1, Version=12.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraVerticalGrid.v12.1, Version=12.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="hammergo.AppManage, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AppManage\bin\Debug\hammergo.AppManage.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="hammergo.BLL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\BLL\bin\Debug\hammergo.BLL.dll</HintPath>
@@ -117,109 +120,53 @@
       <HintPath>..\Tracking\bin\Debug\hammergo.Tracking.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="hammergo.Utility, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Utility\bin\Debug\hammergo.Utility.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BatchSearch.cs">
+    <Compile Include="AppendExport.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="BatchSearch.Designer.cs">
-      <DependentUpon>BatchSearch.cs</DependentUpon>
+    <Compile Include="AppendExport.Designer.cs">
+      <DependentUpon>AppendExport.cs</DependentUpon>
     </Compile>
-    <Compile Include="BatchSearchArgs.cs" />
-    <Compile Include="DegreeStatistics.cs">
+    <Compile Include="ExportAllData.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="DegreeStatistics.Designer.cs">
-      <DependentUpon>DegreeStatistics.cs</DependentUpon>
+    <Compile Include="ExportAllData.Designer.cs">
+      <DependentUpon>ExportAllData.cs</DependentUpon>
     </Compile>
-    <Compile Include="DSDates.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DSDates.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="MonthReport.cs">
+    <Compile Include="ExportAllDataArgs.cs" />
+    <Compile Include="ExportMessureData.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="MonthReport.Designer.cs">
-      <DependentUpon>MonthReport.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ParamsSearch.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="ParamsSearch.Designer.cs">
-      <DependentUpon>ParamsSearch.cs</DependentUpon>
+    <Compile Include="ExportMessureData.Designer.cs">
+      <DependentUpon>ExportMessureData.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StatisticsReport.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="StatisticsReport.Designer.cs">
-      <DependentUpon>StatisticsReport.cs</DependentUpon>
-    </Compile>
-    <Compile Include="StressForm.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="StressForm.Designer.cs">
-      <DependentUpon>StressForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="SearchSameDate.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="SearchSameDate.Designer.cs">
-      <DependentUpon>SearchSameDate.cs</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="DSDates.xsc">
-      <DependentUpon>DSDates.xsd</DependentUpon>
-    </None>
-    <None Include="DSDates.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DSDates.Designer.cs</LastGenOutput>
+    <EmbeddedResource Include="AppendExport.resx">
       <SubType>Designer</SubType>
-    </None>
-    <None Include="DSDates.xss">
-      <DependentUpon>DSDates.xsd</DependentUpon>
-    </None>
-    <None Include="Properties\DataSources\hammergo.Model.Apparatus.datasource" />
-    <None Include="Properties\DataSources\hammergo.Model.AppCollection.datasource" />
-    <None Include="Properties\DataSources\hammergo.Model.TaskAppratus.datasource" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="BatchSearch.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>BatchSearch.cs</DependentUpon>
+      <DependentUpon>AppendExport.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DegreeStatistics.resx">
+    <EmbeddedResource Include="ExportAllData.resx">
       <SubType>Designer</SubType>
-      <DependentUpon>DegreeStatistics.cs</DependentUpon>
+      <DependentUpon>ExportAllData.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MonthReport.resx">
+    <EmbeddedResource Include="ExportMessureData.resx">
       <SubType>Designer</SubType>
-      <DependentUpon>MonthReport.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ParamsSearch.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>ParamsSearch.cs</DependentUpon>
+      <DependentUpon>ExportMessureData.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
-    <EmbeddedResource Include="StatisticsReport.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>StatisticsReport.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="StressForm.resx">
-      <DependentUpon>StressForm.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SearchSameDate.resx">
-      <DependentUpon>SearchSameDate.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CommonControl\CommonControl.csproj">
@@ -227,19 +174,14 @@
       <Name>CommonControl</Name>
       <Private>True</Private>
     </ProjectReference>
+    <ProjectReference Include="..\DataManage\DataManage.csproj">
+      <Project>{975F41ED-B2E2-48D3-A847-884DA25E62E5}</Project>
+      <Name>DataManage</Name>
+      <Private>True</Private>
+    </ProjectReference>
     <ProjectReference Include="..\ExportLib\ExportLib.csproj">
       <Project>{5629BAC0-6090-432E-A67D-06FCFC443170}</Project>
       <Name>ExportLib</Name>
-      <Private>True</Private>
-    </ProjectReference>
-    <ProjectReference Include="..\Stress\Stress.csproj">
-      <Project>{C08D2BE0-31F3-469A-AF9D-6DFC565E4530}</Project>
-      <Name>Stress</Name>
-      <Private>False</Private>
-    </ProjectReference>
-    <ProjectReference Include="..\Utility\Utility.csproj">
-      <Project>{5099C05A-9AE9-437B-A35A-D4948FA75CCB}</Project>
-      <Name>Utility</Name>
       <Private>True</Private>
     </ProjectReference>
   </ItemGroup>

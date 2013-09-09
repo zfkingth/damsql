@@ -1,0 +1,882 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>hammergo.caculator</name>
+    </assembly>
+    <members>
+        <member name="T:hammergo.caculator.WordType">
+            <summary>
+            单词类型的枚举结构,标识符:Identifier,函数名,FunName,
+            操作符:+,-,*,/,左括号(,leftp,右括号),rightp
+            </summary>
+        </member>
+        <member name="F:hammergo.caculator.WordType.Plus">
+            <summary>
+            +
+            </summary>
+        </member>
+        <member name="F:hammergo.caculator.WordType.Minus">
+            <summary>
+            -
+            </summary>
+        </member>
+        <member name="F:hammergo.caculator.WordType.Mul">
+            <summary>
+            *
+            </summary>
+        </member>
+        <member name="F:hammergo.caculator.WordType.Div">
+            <summary>
+            /
+            </summary>
+        </member>
+        <member name="F:hammergo.caculator.WordType.Power">
+            <summary>
+            ^
+            </summary>
+        </member>
+        <member name="F:hammergo.caculator.WordType.Leftp">
+            <summary>
+            (
+            </summary>
+        </member>
+        <member name="F:hammergo.caculator.WordType.Rightp">
+            <summary>
+            )
+            </summary>
+        </member>
+        <member name="F:hammergo.caculator.WordType.Number">
+            <summary>
+            数字
+            </summary>
+        </member>
+        <member name="F:hammergo.caculator.WordType.Identifier">
+            <summary>
+            标识符
+            </summary>
+        </member>
+        <member name="F:hammergo.caculator.WordType.FunName">
+            <summary>
+            函数名
+            </summary>
+        </member>
+        <member name="F:hammergo.caculator.WordType.IdentifierWithDot">
+            <summary>
+            带点的标识符，两层
+            </summary>
+        </member>
+        <member name="F:hammergo.caculator.WordType.Blank">
+            <summary>
+            空格
+            </summary>
+        </member>
+        <member name="F:hammergo.caculator.WordType.Comma">
+            <summary>
+            逗号
+            </summary>
+        </member>
+        <member name="T:hammergo.caculator.AbstractScan">
+            <summary>
+            扫描类
+            </summary>
+        </member>
+        <member name="F:hammergo.caculator.AbstractScan.MaxSize">
+            <summary>
+            定义单词的最大长度
+            </summary>
+        </member>
+        <member name="M:hammergo.caculator.AbstractScan.getChar">
+            <summary>
+            从扫描字符串中获取一个字符，当到达扫描字符串尾时返回'\0'
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:hammergo.caculator.AbstractScan.setString(System.String)">
+            <summary>
+            设置需要扫描的表达式
+            </summary>
+            <param name="calcString"></param>
+        </member>
+        <member name="M:hammergo.caculator.AbstractScan.isLetter(System.Char)">
+             <summary>
+            判断字符是否是a-z,A-Z中的一个字符
+             </summary>
+             <param name="achar"></param>
+             <returns></returns>
+        </member>
+        <member name="M:hammergo.caculator.AbstractScan.isDigit(System.Char)">
+            <summary>
+            判断字符是否是一个数字
+            </summary>
+            <param name="achar"></param>
+            <returns></returns>
+        </member>
+        <member name="M:hammergo.caculator.AbstractScan.addToToken(System.Char)">
+            <summary>
+            将字符加入到strToken单词中
+            </summary>
+            <param name="c"></param>
+        </member>
+        <member name="M:hammergo.caculator.AbstractScan.clearToken">
+            <summary>
+            将单词strToken的内容清空
+            </summary>
+        </member>
+        <member name="M:hammergo.caculator.AbstractScan.getCharType(System.Char)">
+            <summary>
+            
+            </summary>
+            <param name="c"></param>
+            <returns></returns>
+        </member>
+        <member name="M:hammergo.caculator.AbstractScan.parse(System.String)">
+            <summary>
+            解析字符串
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:hammergo.caculator.AbstractScan.addToList(System.Int32)">
+            <summary>
+            单词扫描完成后，将单词加入到list中
+            </summary>
+            <param name="state"></param>
+        </member>
+        <member name="M:hammergo.caculator.AbstractScan.makeString(System.Char[])">
+            <summary>
+            产生字符串
+            </summary>
+            <param name="chars"></param>
+            <returns></returns>
+        </member>
+        <member name="T:hammergo.caculator.ICalcFunction">
+            <summary>
+            CalcFunction 的摘要说明。
+            </summary>
+            
+        </member>
+        <member name="M:hammergo.caculator.ICalcFunction.compute(System.String)">
+            <summary>
+            计算
+            </summary>
+            <param name="s"></param>
+            <returns></returns>
+        </member>
+        <member name="M:hammergo.caculator.ICalcFunction.compute(System.String,hammergo.caculator.MyList)">
+            <summary>
+            计算
+            </summary>
+            <param name="s"></param>
+            <param name="slist"></param>
+            <returns></returns>
+        </member>
+        <member name="T:hammergo.caculator.CalcFunction">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:hammergo.caculator.CalcFunction.#ctor(System.Boolean)">
+            <summary>
+            是否使用表达式前缀,usePrefix为true,引用其它二级变量前面要加上! 如!kk23.e4 或!kk-kk.e4
+            </summary>
+            <param name="usePrefix"></param>
+        </member>
+        <member name="M:hammergo.caculator.CalcFunction.#ctor">
+            <summary>
+            引用其它仪器的数据默认方式，不使用!前缀
+            </summary>
+        </member>
+        <member name="M:hammergo.caculator.CalcFunction.compute(System.String)">
+            <summary>
+            计算带函数的表达式的值
+            </summary>
+            <param name="s"></param>
+            <returns></returns>
+        </member>
+        <member name="M:hammergo.caculator.CalcFunction.getVaribles(System.String)">
+            <summary>
+            得到计算表达式的所有变量名称
+            </summary>
+            <param name="s"></param>
+            <returns></returns>
+        </member>
+        <member name="M:hammergo.caculator.CalcFunction.compute(System.String,hammergo.caculator.MyList)">
+            <summary>
+            算带函数的表达式的值
+            </summary>
+            <param name="s">公式字符串</param>
+            <param name="slist">参数列表</param>
+            <returns></returns>
+        </member>
+        <member name="M:hammergo.caculator.CalcFunction.calcFuns(hammergo.caculator.LinkList)">
+            <summary>
+            计算中缀表达式中的所有函数
+            </summary>
+            <param name="list"></param>
+            <returns></returns>
+        </member>
+        <member name="M:hammergo.caculator.CalcFunction.Function(System.String,System.Collections.ArrayList)">
+            <summary>
+            函数计算
+            </summary>
+            <param name="name"></param>
+            <param name="array"></param>
+            <returns></returns>
+        </member>
+        <member name="M:hammergo.caculator.CalcFunction.f_max(System.Collections.ArrayList)">
+            <summary>
+            max计算函数
+            </summary>
+            <param name="array"></param>
+            <returns></returns>
+        </member>
+        <member name="M:hammergo.caculator.CalcFunction.f_pi(System.Collections.ArrayList)">
+            <summary>
+            计算PI的值
+            </summary>
+            <param name="array"></param>
+            <returns></returns>
+        </member>
+        <member name="M:hammergo.caculator.CalcFunction.f_sin(System.Collections.ArrayList)">
+            <summary>
+            sin函数 参数为弧度数
+            </summary>
+            <param name="array"></param>
+            <returns></returns>
+        </member>
+        <member name="M:hammergo.caculator.CalcFunction.f_cos(System.Collections.ArrayList)">
+            <summary>
+            实现cos
+            </summary>
+            <param name="array"></param>
+            <returns></returns>
+        </member>
+        <member name="M:hammergo.caculator.CalcFunction.f_sum(System.Collections.ArrayList)">
+            <summary>
+            求和函数
+            </summary>
+            <param name="array"></param>
+            <returns></returns>
+        </member>
+        <member name="M:hammergo.caculator.CalcFunction.f_average(System.Collections.ArrayList)">
+            <summary>
+            求平均值
+            </summary>
+            <param name="array"></param>
+            <returns></returns>
+        </member>
+        <member name="M:hammergo.caculator.CalcFunction.f_min(System.Collections.ArrayList)">
+            <summary>
+            求最小值
+            </summary>
+            <param name="array"></param>
+            <returns></returns>
+        </member>
+        <member name="M:hammergo.caculator.CalcFunction.f_tan(System.Collections.ArrayList)">
+            <summary>
+            求正切
+            </summary>
+            <param name="array"></param>
+            <returns></returns>
+        </member>
+        <member name="M:hammergo.caculator.CalcFunction.f_abs(System.Collections.ArrayList)">
+            <summary>
+            求绝对值
+            </summary>
+            <param name="array"></param>
+            <returns></returns>
+        </member>
+        <member name="M:hammergo.caculator.CalcFunction.f_acos(System.Collections.ArrayList)">
+            <summary>
+            求反余弦
+            </summary>
+            <param name="array"></param>
+            <returns></returns>
+        </member>
+        <member name="M:hammergo.caculator.CalcFunction.f_asin(System.Collections.ArrayList)">
+            <summary>
+            求反正弦
+            </summary>
+            <param name="array"></param>
+            <returns></returns>
+        </member>
+        <member name="M:hammergo.caculator.CalcFunction.f_atan(System.Collections.ArrayList)">
+            <summary>
+            求反正切
+            </summary>
+            <param name="array"></param>
+            <returns></returns>
+        </member>
+        <member name="M:hammergo.caculator.CalcFunction.f_atan2(System.Collections.ArrayList)">
+            <summary>
+            根据指定的X轴及Y轴坐标值的，返回反正切值。
+            返回值在-Pi到Pi之间，不包括-Pi
+            </summary>
+            <param name="array"></param>
+            <returns></returns>
+        </member>
+        <member name="M:hammergo.caculator.CalcFunction.f_cosh(System.Collections.ArrayList)">
+            <summary>
+            返回反双曲余弦值
+            </summary>
+            <param name="array"></param>
+            <returns></returns>
+        </member>
+        <member name="M:hammergo.caculator.CalcFunction.f_fact(System.Collections.ArrayList)">
+            <summary>
+            阶乘
+            </summary>
+            <param name="array"></param>
+            <returns></returns>
+        </member>
+        <member name="M:hammergo.caculator.CalcFunction.f_int(System.Collections.ArrayList)">
+            <summary>
+            将数字向下取整
+            </summary>
+            <param name="array"></param>
+            <returns></returns>
+        </member>
+        <member name="M:hammergo.caculator.CalcFunction.f_ln(System.Collections.ArrayList)">
+            <summary>
+            求自然对数
+            </summary>
+            <param name="array"></param>
+            <returns></returns>
+        </member>
+        <member name="M:hammergo.caculator.CalcFunction.f_e(System.Collections.ArrayList)">
+            <summary>
+            返回常数e
+            </summary>
+            <param name="array"></param>
+            <returns></returns>
+        </member>
+        <member name="M:hammergo.caculator.CalcFunction.f_log(System.Collections.ArrayList)">
+            <summary>
+            根据底数返回数字的对数
+            </summary>
+            <param name="array"></param>
+            <returns></returns>
+        </member>
+        <member name="M:hammergo.caculator.CalcFunction.f_mod(System.Collections.ArrayList)">
+            <summary>
+            两数相除取余数
+            </summary>
+            <param name="array"></param>
+            <returns></returns>
+        </member>
+        <member name="M:hammergo.caculator.CalcFunction.f_power(System.Collections.ArrayList)">
+            <summary>
+            求两数的乘幂
+            </summary>
+            <param name="array"></param>
+            <returns></returns>
+        </member>
+        <member name="M:hammergo.caculator.CalcFunction.f_sinh(System.Collections.ArrayList)">
+            <summary>
+            求双曲正弦值
+            </summary>
+            <param name="array"></param>
+            <returns></returns>
+        </member>
+        <member name="M:hammergo.caculator.CalcFunction.f_tanh(System.Collections.ArrayList)">
+            <summary>
+            求双曲正切值
+            </summary>
+            <param name="array"></param>
+            <returns></returns>
+        </member>
+        <member name="M:hammergo.caculator.CalcFunction.f_round(System.Collections.ArrayList)">
+            <summary>
+            按指定的位数对数值进行四舍五入
+            </summary>
+            <param name="array"></param>
+            <returns></returns>
+        </member>
+        <member name="M:hammergo.caculator.CalcFunction.f_sqrt(System.Collections.ArrayList)">
+            <summary>
+            进行开方运算
+            </summary>
+            <param name="array"></param>
+            <returns></returns>
+        </member>
+        <member name="M:hammergo.caculator.CalcFunction.f_exp(System.Collections.ArrayList)">
+            <summary>
+            e的幂运算
+            </summary>
+            <param name="array"></param>
+            <returns></returns>
+        </member>
+        <member name="M:hammergo.caculator.CalcFunction.f_big(System.Collections.ArrayList)">
+            <summary>
+            如果number1大于number2 返回1,否则返回0
+            </summary>
+            <param name="array"></param>
+            <returns></returns>
+        </member>
+        <member name="M:hammergo.caculator.CalcFunction.f_bigeq(System.Collections.ArrayList)">
+            <summary>
+            如果number1大于等于number2 返回1,否则返回0
+            </summary>
+            <param name="array"></param>
+            <returns></returns>
+        </member>
+        <member name="M:hammergo.caculator.CalcFunction.f_sml(System.Collections.ArrayList)">
+            <summary>
+            如果number1小于number2 返回1,否则返回0
+            </summary>
+            <param name="array"></param>
+            <returns></returns>
+        </member>
+        <member name="M:hammergo.caculator.CalcFunction.f_smleq(System.Collections.ArrayList)">
+            <summary>
+            如果number1小于等于number2 返回1,否则返回0
+            </summary>
+            <param name="array"></param>
+            <returns></returns>
+        </member>
+        <member name="M:hammergo.caculator.CalcFunction.f_bet(System.Collections.ArrayList)">
+            <summary>
+            如果number1介于number2和number3之间 返回1,否则返回0
+            </summary>
+            <param name="array"></param>
+            <returns></returns>
+        </member>
+        <member name="M:hammergo.caculator.CalcFunction.f_beteq(System.Collections.ArrayList)">
+            <summary>
+            如果number1介于number2和number3之间,包括等于 返回1,否则返回0
+            </summary>
+            <param name="array"></param>
+            <returns></returns>
+        </member>
+        <member name="T:hammergo.caculator.Calculator">
+            <summary>
+            Calculator 的摘要说明。
+            </summary>
+        </member>
+        <member name="F:hammergo.caculator.Calculator.priorities">
+            <summary>
+            操作符优先级比较表
+            </summary>
+        </member>
+        <member name="M:hammergo.caculator.Calculator.#cctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:hammergo.caculator.Calculator.compute(hammergo.caculator.LinkList)">
+            <summary>
+            计算中缀表达式的值
+            </summary>
+            <param name="list"></param>
+            <returns></returns>
+        </member>
+        <member name="M:hammergo.caculator.Calculator.createSuffixExpression">
+            <summary>
+            扫描list产生后缀表达式
+            </summary>
+        </member>
+        <member name="M:hammergo.caculator.Calculator.dealOperator(hammergo.caculator.LinkNode)">
+            <summary>
+            操作符入栈
+            </summary>
+            <param name="node"></param>
+        </member>
+        <member name="M:hammergo.caculator.Calculator.dealRight(hammergo.caculator.LinkNode)">
+            <summary>
+            处理右括号
+            </summary>
+            <param name="node"></param>
+        </member>
+        <member name="M:hammergo.caculator.Calculator.reckon">
+            <summary>
+            计算表达式的值
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:hammergo.caculator.Calculator.observeList">
+            <summary>
+            检查+ - * / 操作符的格式是否正确
+            </summary>
+        </member>
+        <member name="P:hammergo.caculator.Calculator.List">
+            <summary>
+            设置需要计算的链表
+            </summary>
+        </member>
+        <member name="T:hammergo.caculator.DespAttribute">
+            <summary>
+            DespAttribute 的摘要说明。
+            </summary>
+        </member>
+        <member name="F:hammergo.caculator.DespAttribute.pattern">
+            <summary>
+            函数形式
+            </summary>
+        </member>
+        <member name="F:hammergo.caculator.DespAttribute.description">
+            <summary>
+            函数功能说明
+            </summary>
+        </member>
+        <member name="F:hammergo.caculator.DespAttribute.paDescription">
+            <summary>
+            函数参数说明
+            </summary>
+        </member>
+        <member name="M:hammergo.caculator.DespAttribute.#ctor(System.String,System.String,System.String)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="pattern">函数形式</param>
+            <param name="description">函数功能描述</param>
+            <param name="paDescription">函数参数描述</param>
+        </member>
+        <member name="P:hammergo.caculator.DespAttribute.Pattern">
+            <summary>
+            函数的形式
+            </summary>
+        </member>
+        <member name="P:hammergo.caculator.DespAttribute.Description">
+            <summary>
+            函数描述
+            </summary>
+        </member>
+        <member name="P:hammergo.caculator.DespAttribute.PaDescription">
+            <summary>
+            函数参数说明
+            </summary>
+        </member>
+        <member name="T:hammergo.caculator.FunInfo">
+            <summary>
+            存存函数信息的类
+            </summary>
+        </member>
+        <member name="M:hammergo.caculator.FunInfo.#ctor(System.String,System.Int32,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="funName"></param>
+            <param name="paramsCount"></param>
+            <param name="description"></param>
+        </member>
+        <member name="P:hammergo.caculator.FunInfo.FunName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:hammergo.caculator.FunInfo.Description">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:hammergo.caculator.FunInfo.ParamsCount">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:hammergo.caculator.FunNames">
+            <summary>
+            
+            用于保存需要实现的数学函数的信息，包括函数名和参数个数
+            </summary>
+        </member>
+        <member name="M:hammergo.caculator.FunNames.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:hammergo.caculator.FunNames.addFun(System.String,System.Int32,System.String)">
+            <summary>
+            往哈希表里添加函数信息
+            </summary>
+            <param name="funName"></param>
+            <param name="paramsCount"></param>
+            <param name="description"></param>
+            <returns></returns>
+        </member>
+        <member name="M:hammergo.caculator.FunNames.funExist(System.String)">
+            <summary>
+            判断函数名为funNamet的函数在哈希表里是否存在
+            </summary>
+            <param name="funName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:hammergo.caculator.FunNames.getFunInfo(System.String)">
+            <summary>
+            根据函数名返回对应的参数的个数
+            </summary>
+            <param name="funName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:hammergo.caculator.LinkList">
+            <summary>
+            LinkList 的摘要说明。
+            </summary>
+        </member>
+        <member name="F:hammergo.caculator.LinkList.first">
+            <summary>
+            首结点
+            </summary>
+        </member>
+        <member name="F:hammergo.caculator.LinkList.end">
+            <summary>
+            尾结点
+            </summary>
+        </member>
+        <member name="F:hammergo.caculator.LinkList.count">
+            <summary>
+            链表中结点的个数
+            </summary>
+        </member>
+        <member name="M:hammergo.caculator.LinkList.#ctor">
+            <summary>
+            Constructor 
+            </summary>
+        </member>
+        <member name="M:hammergo.caculator.LinkList.#ctor(hammergo.caculator.LinkNode,hammergo.caculator.LinkNode)">
+            <summary>
+            Constructor 
+            </summary>
+            <param name="first"></param>
+            <param name="end"></param>
+        </member>
+        <member name="M:hammergo.caculator.LinkList.removeAll">
+            <summary>
+            删除所有的结点
+            </summary>
+        </member>
+        <member name="M:hammergo.caculator.LinkList.remove(hammergo.caculator.LinkNode)">
+            <summary>
+            删除结点
+            </summary>
+            <param name="node"></param>
+        </member>
+        <member name="M:hammergo.caculator.LinkList.removeBetween(hammergo.caculator.LinkNode,hammergo.caculator.LinkNode)">
+            <summary>
+            删除两个结点之间的结点，包括这两个结点
+            </summary>
+            <param name="start"></param>
+            <param name="finish"></param>
+        </member>
+        <member name="M:hammergo.caculator.LinkList.add(hammergo.caculator.LinkNode)">
+            <summary>
+            在链表的末尾添加一个新的结点
+            </summary>
+            <param name="node"></param>
+        </member>
+        <member name="M:hammergo.caculator.LinkList.insert(hammergo.caculator.LinkNode,hammergo.caculator.LinkNode)">
+            <summary>
+            在结点node前插入一个新的结点newNode
+            </summary>
+            <param name="node"></param>
+            <param name="newNode"></param>
+        </member>
+        <member name="M:hammergo.caculator.LinkList.modify">
+            <summary>
+            在+或-前添加数字0
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:hammergo.caculator.LinkList.Acount">
+            <summary>
+            统计整修链表结点的个数
+            </summary>
+        </member>
+        <member name="M:hammergo.caculator.LinkList.searchComma">
+            <summary>
+            在链表中寻找逗号，计这两个结点
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:hammergo.caculator.LinkList.replaceVariable(hammergo.caculator.MyList)">
+            <summary>
+            将表达式中的变量替换为具体的数字
+            </summary>
+            <param name="slist"></param>
+        </member>
+        <member name="P:hammergo.caculator.LinkList.Count">
+            <summary>
+            返回链表中结点的个数
+            </summary>
+        </member>
+        <member name="P:hammergo.caculator.LinkList.First">
+            <summary>
+            返回首结点
+            </summary>
+        </member>
+        <member name="P:hammergo.caculator.LinkList.End">
+            <summary>
+            链表的最后一个结点
+            </summary>
+        </member>
+        <member name="T:hammergo.caculator.LinkNode">
+            <summary>
+            LinkNode 的摘要说明。
+            
+            </summary>
+        </member>
+        <member name="F:hammergo.caculator.LinkNode.preNode">
+            <summary>
+            前一个节点
+            </summary>
+        </member>
+        <member name="F:hammergo.caculator.LinkNode.nextNode">
+            <summary>
+            后一个节点
+            </summary>
+        </member>
+        <member name="M:hammergo.caculator.LinkNode.#ctor">
+            <summary>
+            构造一个结点
+            </summary>
+        </member>
+        <member name="M:hammergo.caculator.LinkNode.#ctor(hammergo.caculator.Word)">
+            <summary>
+            构造一个链表，它的头结点不为空
+            </summary>
+            <param name="word"></param>
+        </member>
+        <member name="M:hammergo.caculator.LinkNode.getWord">
+            <summary>
+            获取结点的值word
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:hammergo.caculator.LinkNode.Previous">
+            <summary>
+            前一个结点属性
+            </summary>
+        </member>
+        <member name="P:hammergo.caculator.LinkNode.Next">
+            <summary>
+            下一个结点的属性
+            </summary>
+        </member>
+        <member name="T:hammergo.caculator.MyList">
+            <summary>
+            MyList 的摘要说明。
+            </summary>
+            
+        </member>
+        <member name="F:hammergo.caculator.MyList.initialSize">
+            <summary>
+            初始大小
+            </summary>
+        </member>
+        <member name="F:hammergo.caculator.MyList.maxSize">
+            <summary>
+            表的容量
+            </summary>
+        </member>
+        <member name="F:hammergo.caculator.MyList.currentIndex">
+            <summary>
+            表示数组中空元素的起始坐标，也表示数组中所拥有元素的实际数量
+            </summary>
+        </member>
+        <member name="F:hammergo.caculator.MyList.keys">
+            <summary>
+            键数组
+            </summary>
+        </member>
+        <member name="F:hammergo.caculator.MyList.values">
+            <summary>
+            值数组
+            </summary>
+        </member>
+        <member name="M:hammergo.caculator.MyList.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:hammergo.caculator.MyList.#ctor(System.Int32)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="initialSize">表的初始大小</param>
+        </member>
+        <member name="M:hammergo.caculator.MyList.add(System.String,System.Double)">
+            <summary>
+            添加键值对,如果key键已存在，那么只是修改它对应的值
+            </summary>
+            <param name="key"></param>
+            <param name="val"></param>
+        </member>
+        <member name="M:hammergo.caculator.MyList.clear">
+            <summary>
+            清除整修表的元素s
+            </summary>
+        </member>
+        <member name="M:hammergo.caculator.MyList.getKey(System.Int32)">
+            <summary>
+            获取键字符串
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="P:hammergo.caculator.MyList.Item(System.String)">
+            <summary>
+            根据键来索引值
+            </summary>
+        </member>
+        <member name="P:hammergo.caculator.MyList.Length">
+            <summary>
+            获取表的实际大小
+            </summary>
+        </member>
+        <member name="T:hammergo.caculator.RelaxedScan">
+            <summary>
+            RelaxedScan 的摘要说明。
+            </summary>
+        </member>
+        <member name="T:hammergo.caculator.ScanFactory">
+            <summary>
+            ScanFactory 的摘要说明。静态工厂
+            </summary>
+        </member>
+        <member name="M:hammergo.caculator.ScanFactory.createScan(System.Boolean)">
+            <summary>
+            产生扫描器
+            </summary>
+            <param name="usePrefix"></param>
+            <returns></returns>
+        </member>
+        <member name="T:hammergo.caculator.StrictScan">
+            <summary>
+            StrictScan 的摘要说明。
+            </summary>
+        </member>
+        <member name="T:hammergo.caculator.Word">
+            <summary>
+            WordStruct 的摘要说明。
+            用于保存单词的信息，包括单词类型和值串
+            </summary>
+        </member>
+        <member name="F:hammergo.caculator.Word.wordType">
+            <summary>
+            单词类型
+            </summary>
+        </member>
+        <member name="F:hammergo.caculator.Word.valueString">
+            <summary>
+            值串
+            </summary>
+        </member>
+        <member name="M:hammergo.caculator.Word.#ctor(hammergo.caculator.WordType,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="wordType"></param>
+            <param name="s"></param>
+        </member>
+        <member name="M:hammergo.caculator.Word.removeSymbol">
+            <summary>
+            删除数字的正负号
+            </summary>
+        </member>
+        <member name="M:hammergo.caculator.Word.ToString">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

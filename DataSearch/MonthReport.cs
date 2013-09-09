@@ -88,7 +88,11 @@ namespace hammergo.DataSearch
 
                 formatGridView(gv);
                 setDateColumnVisible(gv);
+                gv.OptionsView.ColumnAutoWidth = false;
+                gv.BestFitMaxRowCount = 1;
+                gv.BestFitColumns();
                 gridControlResult.ResumeLayout();
+         
 
             }
             catch (Exception ex)

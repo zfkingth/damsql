@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{F6105CFB-485F-41BB-9F28-50A66C11E0B8}</ProjectGuid>
+    <ProjectGuid>{975F41ED-B2E2-48D3-A847-884DA25E62E5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>hammergo.DataSearch</RootNamespace>
-    <AssemblyName>hammergo.DataSearch</AssemblyName>
+    <RootNamespace>hammergo.DataManage</RootNamespace>
+    <AssemblyName>hammergo.DataManage</AssemblyName>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <OldToolsVersion>3.5</OldToolsVersion>
@@ -39,7 +39,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
@@ -59,7 +59,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <DebugType>full</DebugType>
     <PlatformTarget>x86</PlatformTarget>
-    <CodeAnalysisLogFile>bin\Debug\hammergo.DataSearch.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisLogFile>bin\Debug\hammergo.DataManage.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
     <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
     <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
     <ErrorReport>prompt</ErrorReport>
@@ -75,173 +75,193 @@
     <Optimize>true</Optimize>
     <DebugType>pdbonly</DebugType>
     <PlatformTarget>x86</PlatformTarget>
-    <CodeAnalysisLogFile>bin\Release\hammergo.DataSearch.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisLogFile>bin\Release\hammergo.DataManage.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
     <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
     <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisRuleSetDirectories>;D:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
-    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
     <CodeAnalysisRuleDirectories>;D:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
     <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevExpress.Data.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Printing.v13.1.Core, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Utils.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraBars.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraEditors.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraPrinting.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraGrid.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraLayout.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraNavBar.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraTreeList.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraVerticalGrid.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="hammergo.BLL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\BLL\bin\Debug\hammergo.BLL.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="C1.Win.C1Chart.4, Version=4.0.20123.22305, Culture=neutral, PublicKeyToken=a22e16972c085838, processorArchitecture=MSIL">
+      <Private>False</Private>
     </Reference>
-    <Reference Include="hammergo.GlobalConfig, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\GlobalConfig\bin\Debug\hammergo.GlobalConfig.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="hammergo.Model, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Model\bin\Debug\hammergo.Model.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="hammergo.Tracking, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Tracking\bin\Debug\hammergo.Tracking.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
+    <Reference Include="DevExpress.Data.v12.1, Version=12.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v12.1.Core, Version=12.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v12.1, Version=12.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraBars.v12.1, Version=12.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v12.1, Version=12.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGrid.v12.1, Version=12.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v12.1, Version=12.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraNavBar.v12.1, Version=12.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraTreeList.v12.1, Version=12.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraVerticalGrid.v12.1, Version=12.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BatchSearch.cs">
+    <Compile Include="AppData.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="BatchSearch.Designer.cs">
-      <DependentUpon>BatchSearch.cs</DependentUpon>
+    <Compile Include="AppData.Designer.cs">
+      <DependentUpon>AppData.cs</DependentUpon>
     </Compile>
-    <Compile Include="BatchSearchArgs.cs" />
-    <Compile Include="DegreeStatistics.cs">
+    <Compile Include="BatchChangeDate.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="DegreeStatistics.Designer.cs">
-      <DependentUpon>DegreeStatistics.cs</DependentUpon>
+    <Compile Include="BatchChangeDate.Designer.cs">
+      <DependentUpon>BatchChangeDate.cs</DependentUpon>
     </Compile>
-    <Compile Include="DSDates.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DSDates.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="MonthReport.cs">
+    <Compile Include="BatchDelete.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="MonthReport.Designer.cs">
-      <DependentUpon>MonthReport.cs</DependentUpon>
+    <Compile Include="BatchDelete.Designer.cs">
+      <DependentUpon>BatchDelete.cs</DependentUpon>
     </Compile>
-    <Compile Include="ParamsSearch.cs">
+    <Compile Include="BatchRemark.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ParamsSearch.Designer.cs">
-      <DependentUpon>ParamsSearch.cs</DependentUpon>
+    <Compile Include="BatchRemark.Designer.cs">
+      <DependentUpon>BatchRemark.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataObserve.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DataObserve.Designer.cs">
+      <DependentUpon>DataObserve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InputIntegrated.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InputIntegrated.Designer.cs">
+      <DependentUpon>InputIntegrated.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InputManage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InputManage.Designer.cs">
+      <DependentUpon>InputManage.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StatisticsReport.cs">
+    <Compile Include="TaskAppSelector.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="StatisticsReport.Designer.cs">
-      <DependentUpon>StatisticsReport.cs</DependentUpon>
+    <Compile Include="TaskAppSelector.Designer.cs">
+      <DependentUpon>TaskAppSelector.cs</DependentUpon>
     </Compile>
-    <Compile Include="StressForm.cs">
+    <Compile Include="TaskEventArgs.cs" />
+    <Compile Include="ReCalculateForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="StressForm.Designer.cs">
-      <DependentUpon>StressForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="SearchSameDate.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="SearchSameDate.Designer.cs">
-      <DependentUpon>SearchSameDate.cs</DependentUpon>
+    <Compile Include="ReCalculateForm.Designer.cs">
+      <DependentUpon>ReCalculateForm.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="DSDates.xsc">
-      <DependentUpon>DSDates.xsd</DependentUpon>
-    </None>
-    <None Include="DSDates.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DSDates.Designer.cs</LastGenOutput>
+    <EmbeddedResource Include="AppData.resx">
       <SubType>Designer</SubType>
-    </None>
-    <None Include="DSDates.xss">
-      <DependentUpon>DSDates.xsd</DependentUpon>
-    </None>
-    <None Include="Properties\DataSources\hammergo.Model.Apparatus.datasource" />
-    <None Include="Properties\DataSources\hammergo.Model.AppCollection.datasource" />
-    <None Include="Properties\DataSources\hammergo.Model.TaskAppratus.datasource" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="BatchSearch.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>BatchSearch.cs</DependentUpon>
+      <DependentUpon>AppData.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DegreeStatistics.resx">
+    <EmbeddedResource Include="BatchChangeDate.resx">
       <SubType>Designer</SubType>
-      <DependentUpon>DegreeStatistics.cs</DependentUpon>
+      <DependentUpon>BatchChangeDate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MonthReport.resx">
+    <EmbeddedResource Include="BatchDelete.resx">
       <SubType>Designer</SubType>
-      <DependentUpon>MonthReport.cs</DependentUpon>
+      <DependentUpon>BatchDelete.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ParamsSearch.resx">
+    <EmbeddedResource Include="BatchRemark.resx">
       <SubType>Designer</SubType>
-      <DependentUpon>ParamsSearch.cs</DependentUpon>
+      <DependentUpon>BatchRemark.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataObserve.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>DataObserve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InputIntegrated.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>InputIntegrated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InputManage.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>InputManage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
-    <EmbeddedResource Include="StatisticsReport.resx">
+    <EmbeddedResource Include="TaskAppSelector.resx">
       <SubType>Designer</SubType>
-      <DependentUpon>StatisticsReport.cs</DependentUpon>
+      <DependentUpon>TaskAppSelector.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="StressForm.resx">
-      <DependentUpon>StressForm.cs</DependentUpon>
+    <EmbeddedResource Include="ReCalculateForm.resx">
+      <DependentUpon>ReCalculateForm.cs</DependentUpon>
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SearchSameDate.resx">
-      <DependentUpon>SearchSameDate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AppManage\AppManage.csproj">
+      <Project>{BE1A7A44-31C8-49BA-AFCD-AD2D02C34EF5}</Project>
+      <Name>AppManage</Name>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{56000660-DAE6-47F9-A47C-E0F43DEE9235}</Project>
+      <Name>BLL</Name>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\calculator\calculator.csproj">
+      <Project>{3142F2D7-9A05-480F-A4CE-804B61AD011D}</Project>
+      <Name>calculator</Name>
+      <Private>True</Private>
+    </ProjectReference>
     <ProjectReference Include="..\CommonControl\CommonControl.csproj">
       <Project>{7848FD5E-2BC4-42FB-8CFE-BBB479533969}</Project>
       <Name>CommonControl</Name>
       <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\ConnectionPool\ConnectionPool.csproj">
+      <Project>{5c99eac9-a707-470d-83bf-4ec6cba93f83}</Project>
+      <Name>ConnectionPool</Name>
     </ProjectReference>
     <ProjectReference Include="..\ExportLib\ExportLib.csproj">
       <Project>{5629BAC0-6090-432E-A67D-06FCFC443170}</Project>
       <Name>ExportLib</Name>
       <Private>True</Private>
     </ProjectReference>
-    <ProjectReference Include="..\Stress\Stress.csproj">
-      <Project>{C08D2BE0-31F3-469A-AF9D-6DFC565E4530}</Project>
-      <Name>Stress</Name>
-      <Private>False</Private>
+    <ProjectReference Include="..\GlobalConfig\GlobalConfig.csproj">
+      <Project>{3D62488E-EBC5-45F3-8576-0DB33CE74E7F}</Project>
+      <Name>GlobalConfig</Name>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\Graphics\Graphics.csproj">
+      <Project>{0379329A-EC3E-4F79-B448-B9AA27759546}</Project>
+      <Name>Graphics</Name>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{C2F416DE-8C6A-4B23-A4FF-1446D9163185}</Project>
+      <Name>Model</Name>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\Tracking\Tracking.csproj">
+      <Project>{2A7B859C-88DF-4BB2-B4C1-452108EA8438}</Project>
+      <Name>Tracking</Name>
+      <Private>True</Private>
     </ProjectReference>
     <ProjectReference Include="..\Utility\Utility.csproj">
       <Project>{5099C05A-9AE9-437B-A35A-D4948FA75CCB}</Project>
       <Name>Utility</Name>
       <Private>True</Private>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\hammergo.Model.AppCollection.datasource" />
+    <None Include="Properties\DataSources\hammergo.Model.TaskAppratus.datasource" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

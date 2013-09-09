@@ -83,7 +83,7 @@ namespace hammergo.DataSearch
             ((System.ComponentModel.ISupportInitialize)(this.dSDates)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit4.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit4.CalendarTimeProperties)).BeginInit();
             this.respCMS.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
@@ -93,15 +93,15 @@ namespace hammergo.DataSearch
             ((System.ComponentModel.ISupportInitialize)(this.BaseValueControl.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkBoxShowDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ddlLatest.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEditBase.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEditBase.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditBase.Properties)).BeginInit();
             this.dateCMS.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit2.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit2.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit3.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit3.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.apparatusBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl2)).BeginInit();
             this.xtraTabControl2.SuspendLayout();
@@ -135,7 +135,7 @@ namespace hammergo.DataSearch
             this.xtraTabPage1.Controls.Add(this.rDate);
             this.xtraTabPage1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(245, 1023);
+            this.xtraTabPage1.Size = new System.Drawing.Size(245, 1021);
             this.xtraTabPage1.Text = "检索选项";
             // 
             // gridControlDates
@@ -191,23 +191,25 @@ namespace hammergo.DataSearch
             this.repositoryItemDateEdit4.AutoHeight = false;
             this.repositoryItemDateEdit4.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemDateEdit4.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.repositoryItemDateEdit4.CalendarTimeProperties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4);
+            this.repositoryItemDateEdit4.CalendarTimeProperties.PopupBorderStyle = DevExpress.XtraEditors.Controls.PopupBorderStyles.Default;
             this.repositoryItemDateEdit4.ContextMenuStrip = this.respCMS;
             this.repositoryItemDateEdit4.Mask.EditMask = "";
             this.repositoryItemDateEdit4.Name = "repositoryItemDateEdit4";
-            this.repositoryItemDateEdit4.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
             // 
             // respCMS
             // 
             this.respCMS.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1});
             this.respCMS.Name = "dateCMS";
-            this.respCMS.Size = new System.Drawing.Size(105, 26);
+            this.respCMS.Size = new System.Drawing.Size(109, 28);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(104, 22);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(108, 24);
             this.toolStripMenuItem1.Text = "粘贴";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
@@ -223,7 +225,7 @@ namespace hammergo.DataSearch
             this.groupControl1.Controls.Add(this.label12);
             this.groupControl1.Controls.Add(this.checkBoxShowDate);
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupControl1.Location = new System.Drawing.Point(0, 608);
+            this.groupControl1.Location = new System.Drawing.Point(0, 606);
             this.groupControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Size = new System.Drawing.Size(245, 415);
@@ -244,7 +246,7 @@ namespace hammergo.DataSearch
             "5",
             "6",
             "7"});
-            this.ddlBaseColumnIndex.Size = new System.Drawing.Size(107, 25);
+            this.ddlBaseColumnIndex.Size = new System.Drawing.Size(107, 24);
             this.ddlBaseColumnIndex.TabIndex = 53;
             // 
             // textBoxFilterVariable
@@ -253,7 +255,7 @@ namespace hammergo.DataSearch
             this.textBoxFilterVariable.Location = new System.Drawing.Point(122, 222);
             this.textBoxFilterVariable.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxFilterVariable.Name = "textBoxFilterVariable";
-            this.textBoxFilterVariable.Size = new System.Drawing.Size(107, 25);
+            this.textBoxFilterVariable.Size = new System.Drawing.Size(107, 24);
             this.textBoxFilterVariable.TabIndex = 52;
             // 
             // checkBoxMonthChange
@@ -273,7 +275,7 @@ namespace hammergo.DataSearch
             this.BaseValueControl.Name = "BaseValueControl";
             this.BaseValueControl.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.BaseValueControl.Size = new System.Drawing.Size(107, 25);
+            this.BaseValueControl.Size = new System.Drawing.Size(107, 24);
             this.BaseValueControl.TabIndex = 50;
             // 
             // label13
@@ -337,7 +339,7 @@ namespace hammergo.DataSearch
             "5",
             "6",
             "7"});
-            this.ddlLatest.Size = new System.Drawing.Size(134, 25);
+            this.ddlLatest.Size = new System.Drawing.Size(134, 24);
             this.ddlLatest.TabIndex = 32;
             // 
             // dateEditBase
@@ -348,15 +350,17 @@ namespace hammergo.DataSearch
             this.dateEditBase.Name = "dateEditBase";
             this.dateEditBase.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEditBase.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.dateEditBase.Properties.CalendarTimeProperties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4);
+            this.dateEditBase.Properties.CalendarTimeProperties.PopupBorderStyle = DevExpress.XtraEditors.Controls.PopupBorderStyles.Default;
             this.dateEditBase.Properties.ContextMenuStrip = this.dateCMS;
             this.dateEditBase.Properties.DisplayFormat.FormatString = "g";
             this.dateEditBase.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dateEditBase.Properties.EditFormat.FormatString = "g";
             this.dateEditBase.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dateEditBase.Properties.Mask.EditMask = "g";
-            this.dateEditBase.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.dateEditBase.Size = new System.Drawing.Size(134, 25);
+            this.dateEditBase.Size = new System.Drawing.Size(134, 24);
             this.dateEditBase.TabIndex = 31;
             // 
             // dateCMS
@@ -364,12 +368,12 @@ namespace hammergo.DataSearch
             this.dateCMS.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.pasteDateMenuItem1});
             this.dateCMS.Name = "dateCMS";
-            this.dateCMS.Size = new System.Drawing.Size(105, 26);
+            this.dateCMS.Size = new System.Drawing.Size(109, 28);
             // 
             // pasteDateMenuItem1
             // 
             this.pasteDateMenuItem1.Name = "pasteDateMenuItem1";
-            this.pasteDateMenuItem1.Size = new System.Drawing.Size(104, 22);
+            this.pasteDateMenuItem1.Size = new System.Drawing.Size(108, 24);
             this.pasteDateMenuItem1.Text = "粘贴";
             this.pasteDateMenuItem1.Click += new System.EventHandler(this.pasteDateMenuItem1_Click);
             // 
@@ -416,42 +420,48 @@ namespace hammergo.DataSearch
             this.repositoryItemDateEdit1.AutoHeight = false;
             this.repositoryItemDateEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemDateEdit1.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.repositoryItemDateEdit1.CalendarTimeProperties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4);
+            this.repositoryItemDateEdit1.CalendarTimeProperties.PopupBorderStyle = DevExpress.XtraEditors.Controls.PopupBorderStyles.Default;
             this.repositoryItemDateEdit1.DisplayFormat.FormatString = "g";
             this.repositoryItemDateEdit1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.repositoryItemDateEdit1.EditFormat.FormatString = "g";
             this.repositoryItemDateEdit1.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.repositoryItemDateEdit1.Mask.EditMask = "g";
             this.repositoryItemDateEdit1.Name = "repositoryItemDateEdit1";
-            this.repositoryItemDateEdit1.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
             // 
             // repositoryItemDateEdit2
             // 
             this.repositoryItemDateEdit2.AutoHeight = false;
             this.repositoryItemDateEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemDateEdit2.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.repositoryItemDateEdit2.CalendarTimeProperties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4);
+            this.repositoryItemDateEdit2.CalendarTimeProperties.PopupBorderStyle = DevExpress.XtraEditors.Controls.PopupBorderStyles.Default;
             this.repositoryItemDateEdit2.DisplayFormat.FormatString = "g";
             this.repositoryItemDateEdit2.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.repositoryItemDateEdit2.EditFormat.FormatString = "g";
             this.repositoryItemDateEdit2.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.repositoryItemDateEdit2.Mask.EditMask = "g";
             this.repositoryItemDateEdit2.Name = "repositoryItemDateEdit2";
-            this.repositoryItemDateEdit2.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
             // 
             // repositoryItemDateEdit3
             // 
             this.repositoryItemDateEdit3.AutoHeight = false;
             this.repositoryItemDateEdit3.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemDateEdit3.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.repositoryItemDateEdit3.CalendarTimeProperties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4);
+            this.repositoryItemDateEdit3.CalendarTimeProperties.PopupBorderStyle = DevExpress.XtraEditors.Controls.PopupBorderStyles.Default;
             this.repositoryItemDateEdit3.DisplayFormat.FormatString = "g";
             this.repositoryItemDateEdit3.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.repositoryItemDateEdit3.EditFormat.FormatString = "g";
             this.repositoryItemDateEdit3.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.repositoryItemDateEdit3.Mask.EditMask = "g";
             this.repositoryItemDateEdit3.Name = "repositoryItemDateEdit3";
-            this.repositoryItemDateEdit3.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
             // 
             // apparatusBindingSource
             // 
@@ -474,7 +484,7 @@ namespace hammergo.DataSearch
             this.xtraTabPage3.Controls.Add(this.gridControlResult);
             this.xtraTabPage3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.xtraTabPage3.Name = "xtraTabPage3";
-            this.xtraTabPage3.Size = new System.Drawing.Size(913, 577);
+            this.xtraTabPage3.Size = new System.Drawing.Size(913, 575);
             this.xtraTabPage3.Text = "检索结果";
             // 
             // gridControlResult
@@ -486,7 +496,7 @@ namespace hammergo.DataSearch
             this.gridControlResult.MainView = this.gridView2;
             this.gridControlResult.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gridControlResult.Name = "gridControlResult";
-            this.gridControlResult.Size = new System.Drawing.Size(913, 577);
+            this.gridControlResult.Size = new System.Drawing.Size(913, 575);
             this.gridControlResult.TabIndex = 0;
             this.gridControlResult.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -499,13 +509,13 @@ namespace hammergo.DataSearch
             this.计算变化ToolStripMenuItem,
             this.导出ToolStripMenuItem});
             this.gridCMS.Name = "gridCMS";
-            this.gridCMS.Size = new System.Drawing.Size(135, 92);
+            this.gridCMS.Size = new System.Drawing.Size(139, 100);
             this.gridCMS.Opening += new System.ComponentModel.CancelEventHandler(this.gridCMS_Opening);
             // 
             // 复制Item
             // 
             this.复制Item.Name = "复制Item";
-            this.复制Item.Size = new System.Drawing.Size(134, 22);
+            this.复制Item.Size = new System.Drawing.Size(138, 24);
             this.复制Item.Text = "复制";
             this.复制Item.Click += new System.EventHandler(this.复制Item_Click);
             // 
@@ -515,7 +525,7 @@ namespace hammergo.DataSearch
             this.增加ToolStripMenuItem,
             this.减少ToolStripMenuItem});
             this.小数位数ToolStripMenuItem.Name = "小数位数ToolStripMenuItem";
-            this.小数位数ToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.小数位数ToolStripMenuItem.Size = new System.Drawing.Size(138, 24);
             this.小数位数ToolStripMenuItem.Text = "小数位数";
             // 
             // 增加ToolStripMenuItem
@@ -538,7 +548,7 @@ namespace hammergo.DataSearch
             this.基准值ToolStripMenuItem,
             this.基准值ToolStripMenuItem1});
             this.计算变化ToolStripMenuItem.Name = "计算变化ToolStripMenuItem";
-            this.计算变化ToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.计算变化ToolStripMenuItem.Size = new System.Drawing.Size(138, 24);
             this.计算变化ToolStripMenuItem.Text = "计算变化";
             // 
             // 基准值ToolStripMenuItem
@@ -558,7 +568,7 @@ namespace hammergo.DataSearch
             // 导出ToolStripMenuItem
             // 
             this.导出ToolStripMenuItem.Name = "导出ToolStripMenuItem";
-            this.导出ToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.导出ToolStripMenuItem.Size = new System.Drawing.Size(138, 24);
             this.导出ToolStripMenuItem.Text = "导出";
             this.导出ToolStripMenuItem.Click += new System.EventHandler(this.导出ToolStripMenuItem_Click);
             // 
@@ -605,7 +615,7 @@ namespace hammergo.DataSearch
             ((System.ComponentModel.ISupportInitialize)(this.dSDatesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dSDates)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit4.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit4.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit4)).EndInit();
             this.respCMS.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
@@ -617,14 +627,14 @@ namespace hammergo.DataSearch
             ((System.ComponentModel.ISupportInitialize)(this.BaseValueControl.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkBoxShowDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ddlLatest.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEditBase.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEditBase.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditBase.Properties)).EndInit();
             this.dateCMS.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit2.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit2.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit3.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit3.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.apparatusBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl2)).EndInit();
