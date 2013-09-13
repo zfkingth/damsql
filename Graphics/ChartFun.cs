@@ -1,3 +1,5 @@
+using System.Data.Linq;
+using System.Linq;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -213,9 +215,13 @@ namespace hammergo.Graphics
             CalculdateDisplayComparer discom = new CalculdateDisplayComparer();
             calcParams.Sort(discom);
 
-            for (int i = 0; i < calcParams.Count; i++)
+            var orderList = (from item in calcParams
+                            orderby item.Order ascending
+                             select item).ToList < CalculateParam>();
+
+            for (int i = 0; i < orderList.Count; i++)
             {
-                CalculateParam cp = calcParams[i];
+                CalculateParam cp = orderList[i];
                 if (cp.ParamName.ToUpper() != filterResultName.ToUpper())
                 {
                     Graphics.Í¼ÐÎRow row = graDataSet.Í¼ÐÎ.NewÍ¼ÐÎRow();

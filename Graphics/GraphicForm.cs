@@ -12,6 +12,8 @@ using DevExpress.XtraTreeList.Nodes;
 using hammergo.Model;
 using System.Drawing.Imaging;
 using hammergo.Utility;
+using System.Data.Linq;
+using System.Linq;
 
 namespace hammergo.Graphics
 {
@@ -179,8 +181,13 @@ namespace hammergo.Graphics
                 try
                 {
                     string appName = ((Apparatus)lbcApps.SelectedItems[0]).AppName;
+                    
 
-                    foreach (CalculateParam cp in calcBLL.GetListByappName(appName))
+                    var orderList = (from item in calcBLL.GetListByappName(appName)
+                                     orderby item.Order ascending
+                                     select item).ToList<CalculateParam>();
+
+                    foreach (CalculateParam cp in orderList )
                     {
                         Graphics.Í¼ÐÎRow row = graphics.Í¼ÐÎ.NewÍ¼ÐÎRow();
 
