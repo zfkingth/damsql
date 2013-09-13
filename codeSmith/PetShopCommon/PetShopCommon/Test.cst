@@ -1,0 +1,38 @@
+<%-- 
+Name:
+Author: 
+Description: 
+--%>
+<%@ CodeTemplate Language="C#" TargetLanguage="Text" Src="" Inherits="" Debug="True" Description="Template description here." %>
+<%@ Property Name="SampleStringProperty" Type="System.String" Default="SomeValue" Optional="True" Category="Strings" Description="This is a sample string property." %>
+<%@ Property Name="SampleBooleanProperty" Type="System.Boolean" Default="True" Optional="False" Category="Booleans" Description="This is a sample boolean property." %>
+<%@ Property Name="SourceTable" Type="SchemaExplorer.TableSchema" Category="??" Description="????" %>
+<%@ Assembly Name="System.Data" %>
+<%@ Assembly Name="SchemaExplorer" %>
+<%@ Assembly Src="Utility.cs"%>
+
+
+
+<%@ Import Namespace="System.Data" %>
+<%@ Import Namespace="SchemaExplorer" %>
+
+
+
+<% 
+	PetShopCommon.Utility.writeInfo(this.Response, SourceTable);
+
+%>
+
+<script runat="template">
+// My methods here.
+
+public string SampleMethod()
+{
+	return "Method output.";
+}
+
+
+   
+
+		
+</script>

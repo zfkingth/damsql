@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetShopCommon", "PetShopCommon\PetShopCommon.csproj", "{DD779AD6-9778-4711-A07E-53E4D10670CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsApplication1", "WindowsApplication1\WindowsApplication1.csproj", "{C8AB7386-0D9C-4E8A-BCEE-FDBDF1643270}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DD779AD6-9778-4711-A07E-53E4D10670CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD779AD6-9778-4711-A07E-53E4D10670CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD779AD6-9778-4711-A07E-53E4D10670CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD779AD6-9778-4711-A07E-53E4D10670CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8AB7386-0D9C-4E8A-BCEE-FDBDF1643270}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8AB7386-0D9C-4E8A-BCEE-FDBDF1643270}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8AB7386-0D9C-4E8A-BCEE-FDBDF1643270}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8AB7386-0D9C-4E8A-BCEE-FDBDF1643270}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
