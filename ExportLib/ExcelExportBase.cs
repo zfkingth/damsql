@@ -234,7 +234,17 @@ namespace hammergo.ExportLib
 
         }
 
-
+        /// <summary>
+        /// 合并单元格并设置值
+        /// </summary>
+        /// <param name="ws">excel worksheet</param>
+        /// <param name="cell1rowIndex">起始行号,excel中index从1开始</param>
+        /// <param name="cell1colIndex">起始列号</param>
+        /// <param name="cell2rowIndex">结束行号</param>
+        /// <param name="cell2colIndex">结束列号</param>
+        /// <param name="val">需要设置的值对象，可以是数组</param>
+        /// <param name="merge">是否合并单元格</param>
+        /// <returns></returns>
         public Excel.Range mergeAndSetValue(Excel.Worksheet ws, int cell1rowIndex, int cell1colIndex, int cell2rowIndex, int cell2colIndex, object val, bool merge)
         {
 

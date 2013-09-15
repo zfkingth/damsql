@@ -106,12 +106,16 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ExcelExportBase.cs" />
+    <Compile Include="ExcelExportDailyReport.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="ExcelExportDataSearch.cs" />
     <Compile Include="ExcelExportMessureExport.cs" />
     <Compile Include="ExcelExportStatistics.cs" />

@@ -78,7 +78,18 @@ namespace hammergo.DataSearch
                     List<AppIntegratedInfo> appInfoList = new List<AppIntegratedInfo>(listNames.Count);
                     Utility.Utility.isSameAppResult(listNames, paramNamelist, filterVariable, appInfoList);
 
-                    fetchData(paramNamelist, appInfoList);
+                    DataTable resultTable = fetchData(paramNamelist, appInfoList);
+                    //process precision
+                    Dictionary<string, int> preDic = getPrecisionDic(appInfoList);
+
+                    if (exporter == null)
+                    {
+                        exporter = new hammergo.ExportLib.ExcelExportDailyReport();
+                    }
+                  
+                    exporter.outputExcel(null,paramNamelist,preDic,resultTable);
+
+
                 }
 
 
@@ -92,8 +103,30 @@ namespace hammergo.DataSearch
 
         }
 
-        hammergo.ExportLib.ExcelExportStatistics exporter = null;
-        private void fetchData(List<string> paramNamelist, List<AppIntegratedInfo> appInfoList)
+        /// <summary>
+        /// 获取小数位数的数据
+        /// </summary>
+        /// <param name="appInfoList">调用之前，确保appInfoList中的元素格式不为0</param>
+        /// <returns></returns>
+        private Dictionary<string, int> getPrecisionDic(List<AppIntegratedInfo> appInfoList)
+        {
+            Dictionary<string, int> preDic = new Dictionary<string, int>(10);
+            foreach (var param in appInfoList[0].CalcParams)
+            {
+                int precision = 2;//默认保留2为小数
+                if (param.PrecisionNum != null && param.PrecisionNum.HasValue && param.PrecisionNum.Value >= 0)
+                {
+                    precision = param.PrecisionNum.Value;
+                }
+
+                preDic.Add(param.ParamName, precision);
+            }
+
+            return preDic;
+        }
+
+        hammergo.ExportLib.ExcelExportDailyReport exporter = null;
+        private DataTable fetchData(List<string> paramNamelist, List<AppIntegratedInfo> appInfoList)
         {
 
 
@@ -118,6 +151,9 @@ namespace hammergo.DataSearch
             {
                 appInfo.Reset(0, startDate, endDate);
                 DateTime it = startDate;
+                bool firstRowFlag = true;
+                //第一行数据的前一次数据
+                AppIntegratedInfo aheadAppInfo = new AppIntegratedInfo(appInfo.appName, 1, null, endDate);
                 do
                 {
                     //终止时刻
@@ -125,8 +161,8 @@ namespace hammergo.DataSearch
 
                     //创建数据行
                     var vals = (from i in appInfo.CalcValues
-                               where i.Date.Value >= it && i.Date.Value < nextTime
-                               select i).ToList<CalculateValue>();
+                                where i.Date.Value >= it && i.Date.Value < nextTime
+                                select i).ToList<CalculateValue>();
                     if (vals.Count() > 0)
                     {
                         //有数据
@@ -137,34 +173,57 @@ namespace hammergo.DataSearch
                         foreach (string paramName in fetchExtreamNameList)
                         {
                             CalculateParam calParam = (from i in appInfo.CalcParams
-                                                      where i.ParamName == paramName
-                                                      select i).FirstOrDefault();
+                                                       where i.ParamName == paramName
+                                                       select i).FirstOrDefault();
                             //find val
                             CalculateValue val = (from i in vals
                                                   where i.CalculateParamID == calParam.CalculateParamID
                                                   select i).FirstOrDefault();
-                            if (val != null)
+                            if (val != null && val.Val.HasValue)
                             {
                                 row[paramName] = val.Val;
                             }
+                            //已经填充了对应日期的数据
+                            //现在求变化
+                            object lastValue = null;
+                            if (firstRowFlag)
+                            {
+                                CalculateValue aheadVal = (from i in aheadAppInfo.CalcValues
+                                                           where i.CalculateParamID == calParam.CalculateParamID
+                                                           select i).FirstOrDefault();
+                                if (aheadVal != null && aheadVal.Val.HasValue)
+                                {
+                                    lastValue = aheadVal.Val.Value;
+                                }
+                            }
+                            else
+                            {
+                                //找到table的最后一行
+                                DataRow aheadRow = rt.Rows[rt.Rows.Count - 1];
+                                lastValue = aheadRow[paramName];
+                            }
 
+                            row[paramName + "变化"] = Utility.Utility.substract(row[paramName], lastValue);
                         }
                         rt.Rows.Add(row);
-                      
-                        
-                        
-                    }
-                  
 
-           
+                        //第一行数据处理完毕
+                        firstRowFlag = false;
+
+
+
+                    }
+
+
+
                     it = nextTime;
                 } while (it <= endDate);
 
             }
 
-    
 
 
+            return rt;
         }
 
         private DataTable CreateTableSchema(DateTime?[] dates, List<string> fetchExtreamNameList)

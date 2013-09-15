@@ -199,6 +199,11 @@ namespace hammergo.Utility
 
                }
            }
+
+           if (appInfoList.Count == 0)
+           {
+               throw new Exception("没有选择任何测点，无法检索!");
+           }
        }
 
        /// <summary>

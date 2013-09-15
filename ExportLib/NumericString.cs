@@ -10,7 +10,7 @@ namespace hammergo.ExportLib
         string resultNameFormat = "";
         string timeFormat = hammergo.GlobalConfig.PubConstant.shortString;
 
-        public NumericString(List<string> fetchExtreamNameList, List<string> nameList, string selectedName, string timeFormat)
+        public NumericString(List<string> fetchExtreamNameList, List<string> nameList, string selectedName, string timeFormat):this(timeFormat)
         {
             if (fetchExtreamNameList.Count != nameList.Count)
             {
@@ -19,7 +19,13 @@ namespace hammergo.ExportLib
 
             resultNameFormat = getNumbericString(getPrecisionFromConfig(fetchExtreamNameList[0].ToString()));
 
-            this.timeFormat = timeFormat;
+          
+        }
+
+        public NumericString(string timeFormat)
+        {
+            if (timeFormat != null)
+                this.timeFormat = timeFormat;
         }
 
         /// <summary>

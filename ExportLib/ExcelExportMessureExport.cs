@@ -12,14 +12,14 @@ namespace hammergo.ExportLib
 {
     public class ExcelExportMessureExport : ExcelExportBase
     {
-        public static  string unitFeildName = "unit";
-        public static  string preciseFeildName = "precise";
+        public static string unitFeildName = "unit";
+        public static string preciseFeildName = "precise";
 
         /// <summary>
         /// 将一系列DataTable的数据输出到个Excel文件中
         /// </summary>
         /// <param name="tableList">数据表</param>
-        public  void OutPutTableListToExcel(List<DataTable> tableList)
+        public void OutPutTableListToExcel(List<DataTable> tableList)
         {
             initialExcel();
 
@@ -87,7 +87,7 @@ namespace hammergo.ExportLib
             }
 
             ws.Columns.AutoFit();
-            ws.Activate();
+            ((Excel.Worksheet)ws).Activate();
             setExcelVisible(true, excel);
 
 
