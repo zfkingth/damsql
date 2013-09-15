@@ -162,18 +162,7 @@ namespace hammergo.DataSearch
 
             }
 
-            gridControlResult.SuspendLayout();
-
-            gridControlResult.DataSource = rt;
-            gridControlResult.MainView.PopulateColumns();
-
-            bv.Bands.Clear();
-            var bandName = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-
-            bv.OptionsView.ColumnAutoWidth = false;
-            bv.BestFitMaxRowCount = 1;
-            bv.BestFitColumns();
-            gridControlResult.ResumeLayout();
+    
 
 
         }

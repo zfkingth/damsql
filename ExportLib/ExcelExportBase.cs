@@ -180,40 +180,7 @@ namespace hammergo.ExportLib
 
 
      
-        /// <summary>
-        /// 执行obj1减去obj2的操作,返回正常值,或异常值,或空对象
-        /// </summary>
-        /// <param name="obj1"></param>
-        /// <param name="obj2"></param>
-        /// <returns></returns>
-        public  object substract(object obj1, object obj2)
-        {
-            object val = DBNull.Value;
-
-            //看是否存在空值
-            if (obj1 != null && obj1 != DBNull.Value && obj2 != null && obj2 != DBNull.Value)
-            {
-                if (obj1 is double && obj2 is double)
-                {
-
-
-                    if (hammergo.Utility.Utility.isErrorValue((double)obj1) || hammergo.Utility.Utility.isErrorValue((double)obj2))
-                    {
-                        //存在异常值
-                        val = hammergo.GlobalConfig.PubConstant.ConfigData.ErrorValList[0];
-                    }
-                    else 
-                    {
-                        //既没有空值，也没有异常值 ,同时也是double类型的数
-
-                        val = (double)obj1 - (double)obj2;
-                    }
-                }
-            }
-
-            return val;
-
-        }
+    
 
 
         //public  string unitFeildName = "unit";
