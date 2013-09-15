@@ -190,7 +190,7 @@ namespace hammergo.ExportLib
 
 
 
-        protected  Excel.Range setArrayValue(Excel.Worksheet ws, object[,] datas, int startRowIndex, int startColIndex)
+        public  Excel.Range setArrayValue(Excel.Worksheet ws, object[,] datas, int startRowIndex, int startColIndex)
         {
             int rowsCount = datas.GetLength(0);
             int colsCount = datas.GetLength(1);

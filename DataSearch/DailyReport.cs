@@ -25,7 +25,7 @@ namespace hammergo.DataSearch
         private void StatisticsReport_Load(object sender, EventArgs e)
         {
             appSelector1.initial();
-            initialPrecision();
+            //initialPrecision();
             c1DateEdit1.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             c1DateEdit1.Properties.DisplayFormat.FormatString = PubConstant.customString;
 
@@ -153,7 +153,7 @@ namespace hammergo.DataSearch
                 DateTime it = startDate;
                 bool firstRowFlag = true;
                 //第一行数据的前一次数据
-                AppIntegratedInfo aheadAppInfo = new AppIntegratedInfo(appInfo.appName, 1, null, endDate);
+                AppIntegratedInfo aheadAppInfo = new AppIntegratedInfo(appInfo.appName, 1, null, startDate.Add(TimeSpan.FromSeconds(-1)));
                 do
                 {
                     //终止时刻

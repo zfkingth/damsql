@@ -32,9 +32,10 @@ namespace hammergo.ExportLib
             constructExcel(ws, dateFormat, paramNamelist, preDic, outTable, ref colsCount);
             object[,] datas = constructDatas(outTable);
 
-            Excel.Range ra = putData(ws, datas, _startRowIndex+2, _startColIndex);
+            Excel.Range ra = setArrayValue(ws, datas, _startRowIndex + 2, _startColIndex);
 
             formatWorksheet(ws, ra);
+            ra.Columns.AutoFit();
             setExcelVisible(true);
 
 
@@ -137,17 +138,6 @@ namespace hammergo.ExportLib
 
         }
 
-        private Excel.Range putData(Excel.Worksheet ws, object[,] datas, int startRowIndex, int startColIndex)
-        {
-            int rowsCount = datas.GetLength(0);
-            int colsCount = datas.GetLength(1);
-
-            Excel.Range ra = mergeAndSetValue(ws, startRowIndex, startColIndex, startRowIndex + rowsCount - 1, startColIndex + colsCount - 1, datas, false);
-
-
-            //wb.Activate();
-            return ra;
-        }
 
         private void formatWorksheet(Excel.Worksheet ws, Excel.Range ra)
         {
