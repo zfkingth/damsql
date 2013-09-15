@@ -107,6 +107,7 @@ namespace hammergo.MainApp
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.splitterControl1 = new DevExpress.XtraEditors.SplitterControl();
+            this.barButtonItem39 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).BeginInit();
@@ -181,9 +182,10 @@ namespace hammergo.MainApp
             this.barButtonItem31,
             this.barButtonItem32,
             this.barButtonItem37,
-            this.barButtonItem38});
+            this.barButtonItem38,
+            this.barButtonItem39});
             this.barManager1.MainMenu = this.bar2;
-            this.barManager1.MaxItemId = 70;
+            this.barManager1.MaxItemId = 71;
             // 
             // bar2
             // 
@@ -368,6 +370,7 @@ namespace hammergo.MainApp
             this.barSubItem3.Caption = "数据检索";
             this.barSubItem3.Id = 19;
             this.barSubItem3.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem39),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem15),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem20),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem22),
@@ -806,6 +809,13 @@ namespace hammergo.MainApp
             this.splitterControl1.TabIndex = 34;
             this.splitterControl1.TabStop = false;
             // 
+            // barButtonItem39
+            // 
+            this.barButtonItem39.Caption = "日报表";
+            this.barButtonItem39.Id = 70;
+            this.barButtonItem39.Name = "barButtonItem39";
+            this.barButtonItem39.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem39_ItemClick);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
@@ -915,5 +925,6 @@ namespace hammergo.MainApp
         private DevExpress.XtraBars.BarButtonItem barButtonItem32;
         private DevExpress.XtraBars.BarButtonItem barButtonItem37;
         private DevExpress.XtraBars.BarButtonItem barButtonItem38;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem39;
     }
 }

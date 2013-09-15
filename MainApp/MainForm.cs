@@ -694,6 +694,11 @@ namespace hammergo.MainApp
             addNewUserControlInTabPage(typeof(hammergo.DataSearch.SearchSameDate), "合并数据", true);
         }
 
+        private void barButtonItem39_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            addNewUserControlInTabPage(typeof(DataSearch.DailyReport), "制作日报表", true);
+        }
+
 
 
     }

@@ -22,7 +22,7 @@ namespace hammergo.Utility
        /// <returns></returns>
        public static double round(double v, int precision)
        {
-           if (precision > 0&&double.IsNaN(v)==false)
+           if (precision > 0 && double.IsNaN(v) == false)
            {
                double tmpv = v;
                if (v < 0)
@@ -45,6 +45,10 @@ namespace hammergo.Utility
 
 
 
+           }
+           else if(double.IsNaN(v) == false)
+           {
+               v = Math.Round(v);
            }
 
            return v;
