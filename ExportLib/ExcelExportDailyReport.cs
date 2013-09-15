@@ -34,11 +34,44 @@ namespace hammergo.ExportLib
 
             Excel.Range ra = setArrayValue(ws, datas, _startRowIndex + 2, _startColIndex);
 
+            mergeAppName(ws, _startRowIndex + 2, _startColIndex, outTable);
+
             formatWorksheet(ws, ra);
             ra.Columns.AutoFit();
             setExcelVisible(true);
 
 
+        }
+
+        /// <summary>
+        /// 合并测定编号单元格
+        /// </summary>
+        /// <param name="ws"></param>
+        /// <param name="rowIndex"></param>
+        /// <param name="colIndex"></param>
+        /// <param name="outTable"></param>
+        private void mergeAppName(Excel.Worksheet ws, int rowIndex, int colIndex, DataTable outTable)
+        {
+            //var query =
+            //     from q in outTable.AsEnumerable()
+            //     group 1 by q.Field<string>("测点编号");
+
+            var array = outTable.AsEnumerable();
+
+            for (int i = 0; i < outTable.Rows.Count; )
+            {
+                string name = outTable.Rows[i]["测点编号"].ToString();
+                int cnt = (from item in array
+                           where item.Field<string>("测点编号") == name
+                           select item).Count();
+                var cell1 = ws.Cells[rowIndex + i, colIndex];
+                var cell2 = ws.Cells[rowIndex + i + cnt-1, colIndex];
+                Excel.Range ra = ws.Range[cell1, cell2];
+                ra.Merge(false);
+
+                i = i + cnt;
+
+            }
         }
 
 
