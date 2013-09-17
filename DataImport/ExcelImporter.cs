@@ -162,10 +162,10 @@ namespace hammergo.DataImport
                 string names = "";
                 foreach (string name in query)
                 {
-                    names = name + "";
+                    names += name + " ";
                 }
 
-                throw new Exception(string.Format("Excel文件{0}的表{1}中找不到以下列{2}", fullPath, ws.Name, names));
+                throw new Exception(string.Format("Excel文件{0}\n表{1}中找不到以下列\n{2}", fullPath, ws.Name, names));
             }
 
             //找到所有表头数据
