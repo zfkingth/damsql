@@ -1,3 +1,5 @@
+using System.Linq;
+using System.Data.Linq;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -98,30 +100,38 @@ namespace hammergo.DataImport
         List<DateTime> listDates = null;
 
         //excel中表头所占的行数
-        const int tableHeaderRowsCnt = 1;
+        const int _tableHeaderRowsCnt = 1;
         /// <summary>
         /// 搜索时每次读取的数据个数
         /// </summary>
-        const int cntPerRead = 50;
+        const int _cntPerRead = 50;
         /// <summary>
         /// excel中实际数据的起始行号
         /// </summary>
-        const int dataStartRow = 2, dataStartCol = 1;
+        const int _dataStartRow = 2, _dataStartCol = 1;
+
+        /// <summary>
+        /// 读取Excel数据的最大列数
+        /// </summary>
+        const int _maxReadColCnt = 40;
+
         private object[,] readData(Microsoft.Office.Interop.Excel.Worksheet ws, AppIntegratedInfo appInfo, Hashtable nameIndexMaps)
         {
             object[,] allData = null;
 
             listDates = new List<DateTime>(100);
-            int colsCnt = appInfo.MessureParams.Count + appInfo.CalcParams.Count + 1 + 1;//1列日期，1列批注
+            int colsCnt =nameIndexMaps.Count;
 
             //读取表头
-            object[,] tableHeader = excelHelper.getArrayValue(ws, dataStartRow - tableHeaderRowsCnt, dataStartCol, 1, colsCnt);
+            object[,] tableHeader = excelHelper.getArrayValue(ws, _dataStartRow - _tableHeaderRowsCnt, _dataStartCol, _tableHeaderRowsCnt, _maxReadColCnt);
 
 
-
-            for (int i = 1; i <= colsCnt; i++)
+            //表头的列计数器
+            int headerCnt = 0;
+            //数组从1开始
+            for (int i = 1; i <= _maxReadColCnt; i++)
             {
-                object obj = tableHeader[1, i];
+                object obj = tableHeader[_dataStartRow - _tableHeaderRowsCnt, i];
                 if (obj != null)
                 {
                     string val = obj.ToString().Trim();
@@ -129,28 +139,48 @@ namespace hammergo.DataImport
                     if (nameIndexMaps.ContainsKey(val))
                     {
                         nameIndexMaps[val] = i;
+                        //找到了一列
+                        headerCnt++;
                     }
-                    else
-                    {
-                        throw new Exception(string.Format("Excel文件{0}的表{1}中的'{2}'列与测点'{3}'的参数不配置,无法导入", fullPath, ws.Name, val, appInfo.appName));
-                    }
+                    //else
+                    //{
+                    //    throw new Exception(string.Format("Excel文件{0}的表{1}中的'{2}'列与测点'{3}'的参数不配置,无法导入", fullPath, ws.Name, val, appInfo.appName));
+                    //}
                 }
-                else
-                {
-                    throw new Exception(string.Format("Excel文件{0}的表{1}中的第{2}列不能为空", fullPath, ws.Name, i));
-                }
+                //else
+                //{
+                //    throw new Exception(string.Format("Excel文件{0}的表{1}中的第{2}列不能为空", fullPath, ws.Name, i));
+                //}
             }
+
+            if (headerCnt != colsCnt)
+            {
+               //在Excel中没有找到全部参数
+                var query = from i in nameIndexMaps.Keys.Cast<string>()
+                            where nameIndexMaps[i] == null
+                            select i;
+                string names = "";
+                foreach (string name in query)
+                {
+                    names = name + "";
+                }
+
+                throw new Exception(string.Format("Excel文件{0}的表{1}中找不到以下列{2}", fullPath, ws.Name, names));
+            }
+
+            //找到所有表头数据
 
             bool goLoop = true;
             object[,] dateData = null;
             //确定数据的行数
+            int dateColIndex = (int)nameIndexMaps[PubConstant.timeColumnName];
             for (int j = 0; goLoop; j++)
             {
 
-                dateData = excelHelper.getArrayValue(ws, dataStartRow + j * cntPerRead, dataStartCol, cntPerRead, 1);
-                for (int i = 1; i <= cntPerRead; i++)
+                dateData = excelHelper.getArrayValue(ws, _dataStartRow + j * _cntPerRead, _dataStartCol, _cntPerRead, dateColIndex);
+                for (int i = 1; i <= _cntPerRead; i++)
                 {
-                    object obj = dateData[i, 1];
+                    object obj = dateData[i, dateColIndex];
 
                     if (obj != null)
                     {
@@ -164,7 +194,7 @@ namespace hammergo.DataImport
                         {
                             throw new Exception(
                                 string.Format("Excel文件{0}的表{1}中，第{2}行日期有误\n 该数据必须是日期或字符串类型,如果是字符串类型,其格式是须是{3}或{4}",
-                                fullPath, ws.Name, dataStartRow + j * cntPerRead + i - 1, PubConstant.shortString, PubConstant.customString));
+                                fullPath, ws.Name, _dataStartRow + j * _cntPerRead + i - 1, PubConstant.shortString, PubConstant.customString));
                         }
 
 
@@ -180,7 +210,7 @@ namespace hammergo.DataImport
 
 
 
-            allData = excelHelper.getArrayValue(ws, dataStartRow, dataStartCol, listDates.Count, colsCnt);//包括时间列
+            allData = excelHelper.getArrayValue(ws, _dataStartRow, _dataStartCol, listDates.Count, _maxReadColCnt);//包括时间列
 
             return allData;
 
@@ -241,7 +271,7 @@ namespace hammergo.DataImport
                     }
                     else if (key == PubConstant.remarkColumnName)
                     {
-                        row[key] = allData[i + 1, (int)nameIndexMaps[key]];
+                        row[key] = allData[i + 1, (int)nameIndexMaps[key]];//index从1开始
                     }
                     else
                     {
@@ -257,7 +287,7 @@ namespace hammergo.DataImport
                             }
                             catch (Exception)
                             {
-                                throw new Exception(string.Format("Excel文件{0}的表{1}中，第{2}行的'{3}'列数据有误\n ", fullPath, workSheetName, i + 1 + tableHeaderRowsCnt, key));//i从0开始，所有还原的话要加1，而excel的第一行是表头，所以还要加tableHeaderRowsCnt
+                                throw new Exception(string.Format("Excel文件{0}的表{1}中，第{2}行的'{3}'列数据有误\n ", fullPath, workSheetName, i + 1 + _tableHeaderRowsCnt, key));//i从0开始，所有还原的话要加1，而excel的第一行是表头，所以还要加tableHeaderRowsCnt
 
                             }
 
