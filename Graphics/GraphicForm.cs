@@ -363,7 +363,7 @@ namespace hammergo.Graphics
             {
                 Apparatus app = listAppInfo[0].App;
                 //只有是单独的一支仪器才显示坐标信息
-                xyzInfo = string.Format("X={0}, Y={1}, Z={2}m", app.X, app.Y, app.Z);
+                xyzInfo = string.Format("X={0}, Y={1}, Z={2}", app.X, app.Y, app.Z);
             }
             else
             {

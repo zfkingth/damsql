@@ -1,332 +1,257 @@
-USE [master]
+USE [dcq2]
 GO
-/****** Object:  Database [ModelDB]    Script Date: 2013/9/15 21:58:37 ******/
-CREATE DATABASE [ModelDB]
- CONTAINMENT = NONE
- ON  PRIMARY 
-( NAME = N'ModelDB', FILENAME = N'C:\QuickDisk\SQLData\ModelDB\ModelDB.mdf' , SIZE = 20480KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
- LOG ON 
-( NAME = N'ModelDB_log', FILENAME = N'C:\QuickDisk\SQLData\ModelDB\ModelDB_log.ldf' , SIZE = 3456KB , MAXSIZE = 2048GB , FILEGROWTH = 10%)
-GO
-ALTER DATABASE [ModelDB] SET COMPATIBILITY_LEVEL = 100
-GO
-IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
-begin
-EXEC [ModelDB].[dbo].[sp_fulltext_database] @action = 'enable'
-end
-GO
-ALTER DATABASE [ModelDB] SET ANSI_NULL_DEFAULT OFF 
-GO
-ALTER DATABASE [ModelDB] SET ANSI_NULLS OFF 
-GO
-ALTER DATABASE [ModelDB] SET ANSI_PADDING OFF 
-GO
-ALTER DATABASE [ModelDB] SET ANSI_WARNINGS OFF 
-GO
-ALTER DATABASE [ModelDB] SET ARITHABORT OFF 
-GO
-ALTER DATABASE [ModelDB] SET AUTO_CLOSE OFF 
-GO
-ALTER DATABASE [ModelDB] SET AUTO_CREATE_STATISTICS ON 
-GO
-ALTER DATABASE [ModelDB] SET AUTO_SHRINK OFF 
-GO
-ALTER DATABASE [ModelDB] SET AUTO_UPDATE_STATISTICS ON 
-GO
-ALTER DATABASE [ModelDB] SET CURSOR_CLOSE_ON_COMMIT OFF 
-GO
-ALTER DATABASE [ModelDB] SET CURSOR_DEFAULT  GLOBAL 
-GO
-ALTER DATABASE [ModelDB] SET CONCAT_NULL_YIELDS_NULL OFF 
-GO
-ALTER DATABASE [ModelDB] SET NUMERIC_ROUNDABORT OFF 
-GO
-ALTER DATABASE [ModelDB] SET QUOTED_IDENTIFIER OFF 
-GO
-ALTER DATABASE [ModelDB] SET RECURSIVE_TRIGGERS OFF 
-GO
-ALTER DATABASE [ModelDB] SET  DISABLE_BROKER 
-GO
-ALTER DATABASE [ModelDB] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
-GO
-ALTER DATABASE [ModelDB] SET DATE_CORRELATION_OPTIMIZATION OFF 
-GO
-ALTER DATABASE [ModelDB] SET TRUSTWORTHY OFF 
-GO
-ALTER DATABASE [ModelDB] SET ALLOW_SNAPSHOT_ISOLATION OFF 
-GO
-ALTER DATABASE [ModelDB] SET PARAMETERIZATION SIMPLE 
-GO
-ALTER DATABASE [ModelDB] SET READ_COMMITTED_SNAPSHOT OFF 
-GO
-ALTER DATABASE [ModelDB] SET HONOR_BROKER_PRIORITY OFF 
-GO
-ALTER DATABASE [ModelDB] SET RECOVERY FULL 
-GO
-ALTER DATABASE [ModelDB] SET  MULTI_USER 
-GO
-ALTER DATABASE [ModelDB] SET PAGE_VERIFY CHECKSUM  
-GO
-ALTER DATABASE [ModelDB] SET DB_CHAINING OFF 
-GO
-ALTER DATABASE [ModelDB] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
-GO
-ALTER DATABASE [ModelDB] SET TARGET_RECOVERY_TIME = 0 SECONDS 
-GO
-USE [ModelDB]
-GO
-/****** Object:  Table [dbo].[Apparatus]    Script Date: 2013/9/15 21:58:37 ******/
+/****** Object:  Table [dbo].[Apparatus]    Script Date: 2013/10/7 10:55:52 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[Apparatus](
-	[AppName] [nvarchar](20) NOT NULL,
-	[CalculateName] [nvarchar](20) NOT NULL,
-	[ProjectPartID] [uniqueidentifier] NULL,
-	[AppTypeID] [uniqueidentifier] NULL,
-	[X] [nvarchar](50) NULL,
-	[Y] [nvarchar](50) NULL,
-	[Z] [nvarchar](50) NULL,
-	[BuriedTime] [datetime] NULL,
-	[OtherInfo] [nvarchar](200) NULL,
- CONSTRAINT [PK_Apparatus] PRIMARY KEY CLUSTERED 
+[AppName] [nvarchar](20) NOT NULL,
+[CalculateName] [nvarchar](20) NOT NULL,
+[ProjectPartID] [uniqueidentifier] NULL,
+[AppTypeID] [uniqueidentifier] NULL,
+[X] [nvarchar](50) NULL,
+[Y] [nvarchar](50) NULL,
+[Z] [nvarchar](50) NULL,
+[BuriedTime] [datetime] NULL,
+[OtherInfo] [nvarchar](200) NULL,
+CONSTRAINT [PK_Apparatus] PRIMARY KEY CLUSTERED
 (
-	[AppName] ASC
+[AppName] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[ApparatusType]    Script Date: 2013/9/15 21:58:37 ******/
+/****** Object:  Table [dbo].[ApparatusType]    Script Date: 2013/10/7 10:55:52 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[ApparatusType](
-	[ApparatusTypeID] [uniqueidentifier] NOT NULL,
-	[TypeName] [nvarchar](20) NOT NULL,
- CONSTRAINT [PK_ApparatusType] PRIMARY KEY CLUSTERED 
+[ApparatusTypeID] [uniqueidentifier] NOT NULL,
+[TypeName] [nvarchar](20) NOT NULL,
+CONSTRAINT [PK_ApparatusType] PRIMARY KEY CLUSTERED
 (
-	[ApparatusTypeID] ASC
+[ApparatusTypeID] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[AppCollection]    Script Date: 2013/9/15 21:58:37 ******/
+/****** Object:  Table [dbo].[AppCollection]    Script Date: 2013/10/7 10:55:52 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[AppCollection](
-	[AppCollectionID] [uniqueidentifier] NOT NULL,
-	[taskTypeID] [int] NOT NULL,
-	[CollectionName] [nvarchar](30) NOT NULL,
-	[Description] [nvarchar](50) NULL,
-	[Order] [int] NULL,
- CONSTRAINT [PK_AppCollection] PRIMARY KEY CLUSTERED 
+[AppCollectionID] [uniqueidentifier] NOT NULL,
+[taskTypeID] [int] NOT NULL,
+[CollectionName] [nvarchar](30) NOT NULL,
+[Description] [nvarchar](50) NULL,
+[Order] [int] NULL,
+CONSTRAINT [PK_AppCollection] PRIMARY KEY CLUSTERED
 (
-	[AppCollectionID] ASC
+[AppCollectionID] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[CalculateParam]    Script Date: 2013/9/15 21:58:37 ******/
+/****** Object:  Table [dbo].[CalculateParam]    Script Date: 2013/10/7 10:55:52 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[CalculateParam](
-	[CalculateParamID] [uniqueidentifier] NOT NULL,
-	[appName] [nvarchar](20) NULL,
-	[ParamName] [nvarchar](20) NULL,
-	[ParamSymbol] [nvarchar](10) NULL,
-	[UnitSymbol] [nvarchar](10) NULL,
-	[PrecisionNum] [tinyint] NULL,
-	[Order] [tinyint] NULL,
-	[CalculateExpress] [nvarchar](100) NULL,
-	[CalculateOrder] [tinyint] NULL,
-	[Description] [nvarchar](50) NULL,
- CONSTRAINT [PK_CalculateParam] PRIMARY KEY CLUSTERED 
+[CalculateParamID] [uniqueidentifier] NOT NULL,
+[appName] [nvarchar](20) NULL,
+[ParamName] [nvarchar](20) NULL,
+[ParamSymbol] [nvarchar](10) NULL,
+[UnitSymbol] [nvarchar](10) NULL,
+[PrecisionNum] [tinyint] NULL,
+[Order] [tinyint] NULL,
+[CalculateExpress] [nvarchar](100) NULL,
+[CalculateOrder] [tinyint] NULL,
+[Description] [nvarchar](50) NULL,
+CONSTRAINT [PK_CalculateParam] PRIMARY KEY CLUSTERED
 (
-	[CalculateParamID] ASC
+[CalculateParamID] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[CalculateValue]    Script Date: 2013/9/15 21:58:37 ******/
+/****** Object:  Table [dbo].[CalculateValue]    Script Date: 2013/10/7 10:55:52 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[CalculateValue](
-	[calculateParamID] [uniqueidentifier] NOT NULL,
-	[Date] [datetime] NOT NULL,
-	[Val] [float] NULL,
- CONSTRAINT [PK_CalculateValue] PRIMARY KEY CLUSTERED 
+[calculateParamID] [uniqueidentifier] NOT NULL,
+[Date] [datetime] NOT NULL,
+[Val] [float] NULL,
+CONSTRAINT [PK_CalculateValue] PRIMARY KEY CLUSTERED
 (
-	[calculateParamID] ASC,
-	[Date] ASC
+[calculateParamID] ASC,
+[Date] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[ConstantParam]    Script Date: 2013/9/15 21:58:37 ******/
+/****** Object:  Table [dbo].[ConstantParam]    Script Date: 2013/10/7 10:55:52 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[ConstantParam](
-	[ConstantParamID] [uniqueidentifier] NOT NULL,
-	[appName] [nvarchar](20) NULL,
-	[ParamName] [nvarchar](20) NULL,
-	[ParamSymbol] [nvarchar](10) NULL,
-	[UnitSymbol] [nvarchar](10) NULL,
-	[PrecisionNum] [tinyint] NULL,
-	[Order] [tinyint] NULL,
-	[Val] [float] NULL,
-	[Description] [nvarchar](50) NULL,
- CONSTRAINT [PK_ConstantParam] PRIMARY KEY CLUSTERED 
+[ConstantParamID] [uniqueidentifier] NOT NULL,
+[appName] [nvarchar](20) NULL,
+[ParamName] [nvarchar](20) NULL,
+[ParamSymbol] [nvarchar](10) NULL,
+[UnitSymbol] [nvarchar](10) NULL,
+[PrecisionNum] [tinyint] NULL,
+[Order] [tinyint] NULL,
+[Val] [float] NULL,
+[Description] [nvarchar](50) NULL,
+CONSTRAINT [PK_ConstantParam] PRIMARY KEY CLUSTERED
 (
-	[ConstantParamID] ASC
+[ConstantParamID] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[MessureParam]    Script Date: 2013/9/15 21:58:37 ******/
+/****** Object:  Table [dbo].[MessureParam]    Script Date: 2013/10/7 10:55:52 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[MessureParam](
-	[MessureParamID] [uniqueidentifier] NOT NULL,
-	[appName] [nvarchar](20) NULL,
-	[ParamName] [nvarchar](20) NULL,
-	[ParamSymbol] [nvarchar](10) NULL,
-	[UnitSymbol] [nvarchar](10) NULL,
-	[PrecisionNum] [tinyint] NULL,
-	[Order] [tinyint] NULL,
-	[Description] [nvarchar](50) NULL,
- CONSTRAINT [PK_MessureParam] PRIMARY KEY CLUSTERED 
+[MessureParamID] [uniqueidentifier] NOT NULL,
+[appName] [nvarchar](20) NULL,
+[ParamName] [nvarchar](20) NULL,
+[ParamSymbol] [nvarchar](10) NULL,
+[UnitSymbol] [nvarchar](10) NULL,
+[PrecisionNum] [tinyint] NULL,
+[Order] [tinyint] NULL,
+[Description] [nvarchar](50) NULL,
+CONSTRAINT [PK_MessureParam] PRIMARY KEY CLUSTERED
 (
-	[MessureParamID] ASC
+[MessureParamID] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[MessureValue]    Script Date: 2013/9/15 21:58:37 ******/
+/****** Object:  Table [dbo].[MessureValue]    Script Date: 2013/10/7 10:55:52 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[MessureValue](
-	[messureParamID] [uniqueidentifier] NOT NULL,
-	[Date] [datetime] NOT NULL,
-	[Val] [float] NULL,
- CONSTRAINT [PK_MessureValue] PRIMARY KEY CLUSTERED 
+[messureParamID] [uniqueidentifier] NOT NULL,
+[Date] [datetime] NOT NULL,
+[Val] [float] NULL,
+CONSTRAINT [PK_MessureValue] PRIMARY KEY CLUSTERED
 (
-	[messureParamID] ASC,
-	[Date] ASC
+[messureParamID] ASC,
+[Date] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[ProjectPart]    Script Date: 2013/9/15 21:58:37 ******/
+/****** Object:  Table [dbo].[ProjectPart]    Script Date: 2013/10/7 10:55:52 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[ProjectPart](
-	[ProjectPartID] [uniqueidentifier] NOT NULL,
-	[PartName] [nvarchar](50) NOT NULL,
-	[ParentPart] [uniqueidentifier] NULL,
- CONSTRAINT [PK_ProjectPart] PRIMARY KEY CLUSTERED 
+[ProjectPartID] [uniqueidentifier] NOT NULL,
+[PartName] [nvarchar](50) NOT NULL,
+[ParentPart] [uniqueidentifier] NULL,
+CONSTRAINT [PK_ProjectPart] PRIMARY KEY CLUSTERED
 (
-	[ProjectPartID] ASC
+[ProjectPartID] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[Remark]    Script Date: 2013/9/15 21:58:37 ******/
+/****** Object:  Table [dbo].[Remark]    Script Date: 2013/10/7 10:55:52 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[Remark](
-	[appName] [nvarchar](20) NOT NULL,
-	[Date] [datetime] NOT NULL,
-	[RemarkText] [nvarchar](80) NULL,
- CONSTRAINT [PK_Remark] PRIMARY KEY CLUSTERED 
+[appName] [nvarchar](20) NOT NULL,
+[Date] [datetime] NOT NULL,
+[RemarkText] [nvarchar](80) NULL,
+CONSTRAINT [PK_Remark] PRIMARY KEY CLUSTERED
 (
-	[appName] ASC,
-	[Date] ASC
+[appName] ASC,
+[Date] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[Role]    Script Date: 2013/9/15 21:58:37 ******/
+/****** Object:  Table [dbo].[Role]    Script Date: 2013/10/7 10:55:52 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[Role](
-	[RoleID] [int] NOT NULL,
-	[RoleName] [nvarchar](20) NULL,
-	[Description] [nvarchar](50) NULL,
-	[Power] [tinyint] NULL,
- CONSTRAINT [PK_Role] PRIMARY KEY CLUSTERED 
+[RoleID] [int] NOT NULL,
+[RoleName] [nvarchar](20) NULL,
+[Description] [nvarchar](50) NULL,
+[Power] [tinyint] NULL,
+CONSTRAINT [PK_Role] PRIMARY KEY CLUSTERED
 (
-	[RoleID] ASC
+[RoleID] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[SysUser]    Script Date: 2013/9/15 21:58:37 ******/
+/****** Object:  Table [dbo].[SysUser]    Script Date: 2013/10/7 10:55:52 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[SysUser](
-	[UserName] [nvarchar](20) NOT NULL,
-	[PasswordHash] [nvarchar](200) NULL,
-	[Salt] [nvarchar](20) NULL,
-	[Question] [nvarchar](50) NULL,
-	[Answer] [nvarchar](50) NULL,
-	[roleID] [int] NULL,
- CONSTRAINT [PK_SysUser] PRIMARY KEY CLUSTERED 
+[UserName] [nvarchar](20) NOT NULL,
+[PasswordHash] [nvarchar](200) NULL,
+[Salt] [nvarchar](20) NULL,
+[Question] [nvarchar](50) NULL,
+[Answer] [nvarchar](50) NULL,
+[roleID] [int] NULL,
+CONSTRAINT [PK_SysUser] PRIMARY KEY CLUSTERED
 (
-	[UserName] ASC
+[UserName] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[TaskAppratus]    Script Date: 2013/9/15 21:58:37 ******/
+/****** Object:  Table [dbo].[TaskAppratus]    Script Date: 2013/10/7 10:55:52 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[TaskAppratus](
-	[appCollectionID] [uniqueidentifier] NOT NULL,
-	[appName] [nvarchar](20) NOT NULL,
-	[Order] [int] NULL,
- CONSTRAINT [PK_TaskAppratus] PRIMARY KEY CLUSTERED 
+[appCollectionID] [uniqueidentifier] NOT NULL,
+[appName] [nvarchar](20) NOT NULL,
+[Order] [int] NULL,
+CONSTRAINT [PK_TaskAppratus] PRIMARY KEY CLUSTERED
 (
-	[appCollectionID] ASC,
-	[appName] ASC
+[appCollectionID] ASC,
+[appName] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[TaskType]    Script Date: 2013/9/15 21:58:37 ******/
+/****** Object:  Table [dbo].[TaskType]    Script Date: 2013/10/7 10:55:52 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[TaskType](
-	[TaskTypeID] [int] NOT NULL,
-	[TypeName] [nvarchar](30) NULL,
- CONSTRAINT [PK_TaskType] PRIMARY KEY CLUSTERED 
+[TaskTypeID] [int] NOT NULL,
+[TypeName] [nvarchar](30) NULL,
+CONSTRAINT [PK_TaskType] PRIMARY KEY CLUSTERED
 (
-	[TaskTypeID] ASC
+[TaskTypeID] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
@@ -756,61 +681,61 @@ GO
 SET ANSI_PADDING ON
 
 GO
-/****** Object:  Index [IX_AppCollection]    Script Date: 2013/9/15 21:58:37 ******/
-ALTER TABLE [dbo].[AppCollection] ADD  CONSTRAINT [IX_AppCollection] UNIQUE NONCLUSTERED 
+/****** Object:  Index [IX_AppCollection]    Script Date: 2013/10/7 10:55:52 ******/
+ALTER TABLE [dbo].[AppCollection] ADD  CONSTRAINT [IX_AppCollection] UNIQUE NONCLUSTERED
 (
-	[CollectionName] ASC,
-	[taskTypeID] ASC
+[CollectionName] ASC,
+[taskTypeID] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 GO
 SET ANSI_PADDING ON
 
 GO
-/****** Object:  Index [IX_CalculateParam]    Script Date: 2013/9/15 21:58:37 ******/
-ALTER TABLE [dbo].[CalculateParam] ADD  CONSTRAINT [IX_CalculateParam] UNIQUE NONCLUSTERED 
+/****** Object:  Index [IX_CalculateParam]    Script Date: 2013/10/7 10:55:52 ******/
+ALTER TABLE [dbo].[CalculateParam] ADD  CONSTRAINT [IX_CalculateParam] UNIQUE NONCLUSTERED
 (
-	[appName] ASC,
-	[ParamName] ASC
+[appName] ASC,
+[ParamName] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 GO
 SET ANSI_PADDING ON
 
 GO
-/****** Object:  Index [IX_ConstantParam]    Script Date: 2013/9/15 21:58:37 ******/
-ALTER TABLE [dbo].[ConstantParam] ADD  CONSTRAINT [IX_ConstantParam] UNIQUE NONCLUSTERED 
+/****** Object:  Index [IX_ConstantParam]    Script Date: 2013/10/7 10:55:52 ******/
+ALTER TABLE [dbo].[ConstantParam] ADD  CONSTRAINT [IX_ConstantParam] UNIQUE NONCLUSTERED
 (
-	[appName] ASC,
-	[ParamName] ASC
+[appName] ASC,
+[ParamName] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 GO
 SET ANSI_PADDING ON
 
 GO
-/****** Object:  Index [IX_ConstantParam_1]    Script Date: 2013/9/15 21:58:37 ******/
-ALTER TABLE [dbo].[ConstantParam] ADD  CONSTRAINT [IX_ConstantParam_1] UNIQUE NONCLUSTERED 
+/****** Object:  Index [IX_ConstantParam_1]    Script Date: 2013/10/7 10:55:52 ******/
+ALTER TABLE [dbo].[ConstantParam] ADD  CONSTRAINT [IX_ConstantParam_1] UNIQUE NONCLUSTERED
 (
-	[appName] ASC,
-	[ParamSymbol] ASC
+[appName] ASC,
+[ParamSymbol] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 GO
 SET ANSI_PADDING ON
 
 GO
-/****** Object:  Index [IX_MessureParam]    Script Date: 2013/9/15 21:58:37 ******/
-ALTER TABLE [dbo].[MessureParam] ADD  CONSTRAINT [IX_MessureParam] UNIQUE NONCLUSTERED 
+/****** Object:  Index [IX_MessureParam]    Script Date: 2013/10/7 10:55:52 ******/
+ALTER TABLE [dbo].[MessureParam] ADD  CONSTRAINT [IX_MessureParam] UNIQUE NONCLUSTERED
 (
-	[appName] ASC,
-	[ParamName] ASC
+[appName] ASC,
+[ParamName] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 GO
 SET ANSI_PADDING ON
 
 GO
-/****** Object:  Index [IX_MessureParam_1]    Script Date: 2013/9/15 21:58:37 ******/
-ALTER TABLE [dbo].[MessureParam] ADD  CONSTRAINT [IX_MessureParam_1] UNIQUE NONCLUSTERED 
+/****** Object:  Index [IX_MessureParam_1]    Script Date: 2013/10/7 10:55:52 ******/
+ALTER TABLE [dbo].[MessureParam] ADD  CONSTRAINT [IX_MessureParam_1] UNIQUE NONCLUSTERED
 (
-	[appName] ASC,
-	[ParamSymbol] ASC
+[appName] ASC,
+[ParamSymbol] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 GO
 ALTER TABLE [dbo].[Apparatus]  WITH CHECK ADD  CONSTRAINT [FK_Apparatus_ApparatusType] FOREIGN KEY([AppTypeID])
@@ -885,7 +810,4 @@ REFERENCES [dbo].[AppCollection] ([AppCollectionID])
 GO
 ALTER TABLE [dbo].[TaskAppratus] CHECK CONSTRAINT [FK_TaskAppratus_AppCollection]
 GO
-USE [master]
-GO
-ALTER DATABASE [ModelDB] SET  READ_WRITE 
-GO
+
