@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <GlobalConfigData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <DALAssemblyName>hammergo.SqlDbDAL</DALAssemblyName>
-  <ConnectionString>Data Source=(local);Initial Catalog=dcq;Integrated Security=True</ConnectionString>
+  <ConnectionString>Data Source=(local);Initial Catalog=damdb;Integrated Security=True</ConnectionString>
   <ConstParamsList>
     <ParamInfo>
       <Name>温度系数</Name>
