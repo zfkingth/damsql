@@ -104,27 +104,18 @@ namespace hammergo.DataExport
             }
         }
 
+
+        const string blankConst = "    ";
         private void outPutDat(FileInfo info)
         {
-            string id = getIDFromFile(info);
+            string firstline;
+            string id = getIDFromFile(info, out firstline);
 
 
             if (appBLL.ExistsBy_AppName(id) == false)
                 return;
 
-            string line = getLastLine(info.FullName);
-
-            string[] ss = splitString(line, ' ');
-
-            ArrayList blankList = getFilledBankString(line);
-
-
-            ArrayList list = parseDateString(ss);
-
-            DateTime date = (DateTime)list[0];
-            bool tag = (bool)list[1];
-
-            AppIntegratedInfo appInfo = new AppIntegratedInfo(id, 0, date.AddSeconds(1), null);
+            AppIntegratedInfo appInfo = new AppIntegratedInfo(id, 0, null, null);
             appInfo.MessureParams.Sort(new MessureDisplayComparer());
 
             SortedList<DateTime, object> vlist = new SortedList<DateTime, object>(20);
@@ -135,32 +126,23 @@ namespace hammergo.DataExport
                 DateTime time = mv.Date.Value;
                 if (vlist.ContainsKey(time) == false)
                 {
-                    vlist.Add(time,null);
+                    vlist.Add(time, null);
                 }
             }
 
-            using (StreamWriter sw = new StreamWriter(info.FullName, true))
+            using (StreamWriter sw = new StreamWriter(info.FullName, false))
             {
+                sw.WriteLine(firstline);
 
                 for (int i = 0; i < vlist.Count; i++)
                 {
-                    int blandPos = 0;
+
                     DateTime time = vlist.Keys[i];
 
 
                     string outputString = "";
-                    if (tag == false)//第二个数据也为时间
-                    {
-                        outputString = time.ToString(string.Format("yyyyMMdd{0}HHmmss", blankList[blandPos++]));
 
-
-
-                    }
-                    else
-                    {
-                        outputString = time.ToString("yyyyMMdd");
-
-                    }
+                    outputString = time.ToString(string.Format("yyyyMMdd{0}HHmmss", " "));
 
                     outputString = outputString.Remove(0, 2);
 
@@ -168,33 +150,46 @@ namespace hammergo.DataExport
                     foreach (MessureParam mp in appInfo.MessureParams)
                     {
 
-                      
-
                         //DataRow[] rows = table.Select(string.Format("时间=#{0}#", time.ToString(customString)), "序号 asc");
 
-                        MessureValue mv = appInfo.MessureValues.Find(delegate(MessureValue item) { return item.Date.Value == time&&item.MessureParamID==mp.MessureParamID; });
+                        MessureValue mv = appInfo.MessureValues.Find(delegate(MessureValue item) { return item.Date.Value == time && item.MessureParamID == mp.MessureParamID; });
 
+                        outputString += blankConst;
 
-
-                            outputString += blankList[blandPos++];
-
-                            int bits = get小数位数(ss[blandPos]);
-                            //object val = row["值"];
+                        string valString = " ";
+                        if (mv != null)
+                        {
                             object val = mv.Val;
 
-                            string valString;
                             if (val is double)
                             {
-                                if (bits >= 0)
-                                    valString = Utility.Utility.round((double)val, bits).ToString(string.Format("f{0}", bits));
-                                else
+                                if (Utility.Utility.isErrorValue((double)val))
+                                {
                                     valString = val.ToString();
+                                }
+                                else
+                                {
+                                    int precision = defaultPrecision;
 
-                                outputString += valString;
+                                    byte? temp = mp.PrecisionNum as byte?;
+                                    if (temp.HasValue && temp.Value >= 0)
+                                    {
+                                        precision = temp.Value;
+                                    }
+
+                                    valString = Utility.Utility.round((double)val, precision).ToString(string.Format("f{0}", precision));
+
+
+                                }
+
+
                             }
-
-
                         
+                        }
+                        outputString += valString;
+
+
+
                     }
 
                     sw.WriteLine(outputString);
@@ -213,13 +208,13 @@ namespace hammergo.DataExport
         /// <param name="path"></param>
         /// <returns></returns>
 
-        private static  string getLastLine(string path)
+        private static string getLastLine(string path)
         {
 
             using (StreamReader sr = new StreamReader(path))
             {
                 string current = "", pre = "";
-                while ((current = sr.ReadLine()) != null)
+                while ((current = sr.ReadLine()) != null && current.Length != 0)
                 {
                     pre = current;
                 }
@@ -230,194 +225,56 @@ namespace hammergo.DataExport
         }
 
 
-        private static ArrayList getFilledBankString(string s)
-        {
-
-            int pre = -1;
-
-            ArrayList list = new ArrayList(5);
-            for (int i = 0; i < s.Length; i++)
-            {
-                if (s[i] == ' ')
-                {
-
-                    if (pre < 0)
-                        pre = i;
-                }
-                else
-                {
-
-                    if (pre >= 0)
-                    {
-
-                        list.Add(s.Substring(pre, i - pre));
-
-                        pre = -1;
-                    }
-                }
-            }
-
-            return list;
-        }
-
-        /// <summary>
-        /// 第一个数据为时间，第二个数据为标志
-        /// </summary>
-        /// <param name="ss"></param>
-        /// <returns></returns>
-        private  ArrayList parseDateString(string[] ss)
-        {
-            string dateString = ss[0];
-
-            //9几年
-            if (dateString.StartsWith("9"))
-            {
-                dateString = "19" + dateString;
-            }
-            else
-            {
-                dateString = "20" + dateString;
-            }
-
-
-            string s1 = ss[1];
-
-            bool tag;//表示第二个元素不为时间
-            if (isTimeString(s1))
-                tag = false;
-            else
-                tag = true;
-
-            DateTime date;
-            if (tag == false)//第二个数据也为时间
-            {
-                dateString = dateString + s1;
-                date = DateTime.ParseExact(dateString, "yyyyMMddHHmmss", null);
-
-            }
-            else
-            {
-                date = DateTime.ParseExact(dateString, "yyyyMMdd", null);
-
-                date = new DateTime(date.Ticks + TimeSpan.TicksPerMinute * 60 * 23);
-
-            }
-
-            ArrayList list = new ArrayList(2);
-            list.Add(date);
-            list.Add(tag);
-
-            return list;
-        }
-
-        /// <summary>
-        /// 判断字符串是否是一个时间格式HHmmss
-        /// </summary>
-        /// <param name="s"></param>
-        /// <returns></returns>
-
-        private static  bool isTimeString(string s)
-        {
-            if (s.Length != 6) return false;
-            for (int i = 0; i < s.Length; i++)
-            {
-                if (s[i] < '0' || s[i] > '9')
-                    return false;
-            }
-
-            //判断小时
-            int a = (s[0] - '0') * 10;
-            int b = s[1] - '0';
-            if (a + b > 24)
-                return false;
-            //判断分钟
-            a = (s[2] - '0') * 10;
-            b = s[3] - '0';
-            if (a + b > 60)
-                return false;
-            //判断秒
-            a = (s[4] - '0') * 10;
-            b = s[5] - '0';
-            if (a + b > 60)
-                return false;
-
-            return true;
-
-        }
 
 
 
         hammergo.BLL.ApparatusBLL appBLL;
         private void outPutTxt(FileInfo info)
         {
-            string id = getIDFromFile(info);
+            string firstline;
+            string id = getIDFromFile(info, out firstline);
 
-           
-            if (appBLL.ExistsBy_AppName(id)==false)
+
+            if (appBLL.ExistsBy_AppName(id) == false)
                 return;
-
-            
-
-            string line = getLastLine(info.FullName);
-
-            string[] ss = splitString(line, ' ');
-
-            ArrayList blankList = getFilledBankString(line);
-
-
-            ArrayList list = parseDateString(ss);
-
-            DateTime date = (DateTime)list[0];
-            bool tag = (bool)list[1];
 
 
             //从数据库中查询
 
             //测点编号
 
-            AppIntegratedInfo appInfo = new AppIntegratedInfo(id, 0, date.AddSeconds(1), null);
+            AppIntegratedInfo appInfo = new AppIntegratedInfo(id, 0, null, null);
 
             //排序
 
-             appInfo.CalcParams.Sort(new CalculdateDisplayComparer());
-            
+            appInfo.CalcParams.Sort(new CalculdateDisplayComparer());
+
 
             SortedList<DateTime, object> vlist = new SortedList<DateTime, object>(20);
             //按顺序将时间添加到vlist中
-            foreach( CalculateValue cv in  appInfo.CalcValues)
+            foreach (CalculateValue cv in appInfo.CalcValues)
             {
 
                 DateTime time = cv.Date.Value;
                 if (vlist.ContainsKey(time) == false)
                 {
-                    vlist.Add(time,null);
+                    vlist.Add(time, null);
                 }
             }
 
 
-            using (StreamWriter sw = new StreamWriter(info.FullName, true))
+            using (StreamWriter sw = new StreamWriter(info.FullName, false))
             {
 
+                sw.WriteLine(firstline);
                 for (int i = 0; i < vlist.Count; i++)
                 {
-                    int blandPos = 0;
                     DateTime time = vlist.Keys[i];
 
 
                     string outputString = "";
-                    if (tag == false)//第二个数据也为时间
-                    {
-                        outputString = time.ToString(string.Format("yyyyMMdd{0}HHmmss", blankList[blandPos++]));
 
-
-
-                    }
-                    else
-                    {
-                        outputString = time.ToString("yyyyMMdd");
-
-                    }
-
+                    outputString = time.ToString(string.Format("yyyyMMdd{0}HHmmss", " "));
                     outputString = outputString.Remove(0, 2);
 
 
@@ -427,28 +284,45 @@ namespace hammergo.DataExport
                     foreach (CalculateParam cp in appInfo.CalcParams)
                     {
 
-                        CalculateValue cv = appInfo.CalcValues.Find(delegate(CalculateValue item) { return item.Date.Value == time&&item.CalculateParamID==cp.CalculateParamID; });
+                        CalculateValue cv = appInfo.CalcValues.Find(delegate(CalculateValue item) { return item.Date.Value == time && item.CalculateParamID == cp.CalculateParamID; });
 
 
-                            outputString += blankList[blandPos++];
+                        outputString += blankConst;
 
-                            int bits = get小数位数(ss[blandPos]);
-                            //object val = row["值"];
+                        string valString = " ";
+                        if (cv != null)
+                        {
                             object val = cv.Val;
 
-                            string valString;
+
                             if (val is double)
                             {
-                                if (bits >= 0)
-                                    valString = Utility.Utility.round((double)val, bits).ToString(string.Format("f{0}", bits));
-                                else
+                                if (Utility.Utility.isErrorValue((double)val))
+                                {
                                     valString = val.ToString();
+                                }
+                                else
+                                {
+                                    int precision = defaultPrecision;
 
-                                outputString += valString;
+                                    byte? temp = cp.PrecisionNum as byte?;
+                                    if (temp.HasValue && temp.Value >= 0)
+                                    {
+                                        precision = temp.Value;
+                                    }
+
+                                    valString = Utility.Utility.round((double)val, precision).ToString(string.Format("f{0}", precision));
+
+
+                                }
+
+
                             }
+                    
+                        }
+                        outputString += valString;
 
 
-                        
                     }
 
                     sw.WriteLine(outputString);
@@ -461,7 +335,9 @@ namespace hammergo.DataExport
             }
         }
 
-        private static  int get小数位数(string numString)
+        const int defaultPrecision = 2;
+
+        private static int get小数位数(string numString)
         {
             int index = numString.IndexOf('.');
             if (index == -1)
@@ -470,63 +346,17 @@ namespace hammergo.DataExport
             return numString.Length - 1 - index;
         }
 
-        private static string getIDFromFile(FileInfo info)
+        private static string getIDFromFile(FileInfo info, out  string firstline)
         {
 
             using (StreamReader sr = new StreamReader(info.FullName))
             {
-                string line = sr.ReadLine().Trim();
-                string[] ss = line.Split(new char[] { ' ', '\t' });
+                firstline = sr.ReadLine().Trim();
+                string[] ss = firstline.Split(new char[] { ' ', '\t' });
                 sr.Close();
                 return ss[0];
             }
 
-        }
-
-        /// <summary>
-        /// 根据指定分割字符串
-        /// </summary>
-        /// <param name="s"></param>
-        /// <param name="splitChar"></param>
-        /// <returns></returns>
-        private static  string[] splitString(string s, char splitChar)
-        {
-            s = s.Trim();
-            ArrayList list = new ArrayList(10);
-            char[] chars = new char[s.Length];
-            int index = 0;
-            bool previous = false;//表示前一个字符不是空格
-
-            for (int i = 0; i < s.Length; i++)
-            {
-
-                if (s[i] != splitChar)
-                {
-                    chars[index++] = s[i];
-                    previous = false;
-                }
-                else if (previous == false)
-                {
-                    list.Add(new string(chars, 0, index));
-                    index = 0;
-                    previous = true;
-
-                }
-            }
-
-            //处理字符串的末尾
-            if (previous == false)
-                list.Add(new string(chars, 0, index));
-
-
-
-
-            string[] strings = new string[list.Count];
-            for (int i = 0; i < list.Count; i++)
-            {
-                strings[i] = (string)list[i];
-            }
-            return strings;
         }
 
 
@@ -598,5 +428,9 @@ namespace hammergo.DataExport
         {
             appBLL = new hammergo.BLL.ApparatusBLL();
         }
+
+
+
+
     }
 }
