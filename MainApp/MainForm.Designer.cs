@@ -28,9 +28,10 @@ namespace hammergo.MainApp
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel();
-            this.barManager1 = new DevExpress.XtraBars.BarManager();
+            this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
+            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
             this.btiConfig = new DevExpress.XtraBars.BarButtonItem();
@@ -53,6 +54,7 @@ namespace hammergo.MainApp
             this.barButtonItem36 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem32 = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItem3 = new DevExpress.XtraBars.BarSubItem();
+            this.barButtonItem39 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem15 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem20 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem22 = new DevExpress.XtraBars.BarButtonItem();
@@ -94,7 +96,7 @@ namespace hammergo.MainApp
             this.barButtonItem24 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem33 = new DevExpress.XtraBars.BarButtonItem();
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
-            this.popupMenu1 = new DevExpress.XtraBars.PopupMenu();
+            this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
             this.navBarMenu = new DevExpress.XtraNavBar.NavBarControl();
             this.navBarGroup1 = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarItem1 = new DevExpress.XtraNavBar.NavBarItem();
@@ -103,11 +105,10 @@ namespace hammergo.MainApp
             this.navBarItem4 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem5 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem6 = new DevExpress.XtraNavBar.NavBarItem();
-            this.imageList1 = new System.Windows.Forms.ImageList();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.splitterControl1 = new DevExpress.XtraEditors.SplitterControl();
-            this.barButtonItem39 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).BeginInit();
@@ -380,6 +381,13 @@ namespace hammergo.MainApp
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem38)});
             this.barSubItem3.Name = "barSubItem3";
             // 
+            // barButtonItem39
+            // 
+            this.barButtonItem39.Caption = "日报表";
+            this.barButtonItem39.Id = 70;
+            this.barButtonItem39.Name = "barButtonItem39";
+            this.barButtonItem39.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem39_ItemClick);
+            // 
             // barButtonItem15
             // 
             this.barButtonItem15.Caption = "制作月报";
@@ -547,32 +555,32 @@ namespace hammergo.MainApp
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Margin = new System.Windows.Forms.Padding(4);
-            this.barDockControlTop.Size = new System.Drawing.Size(1355, 27);
+            this.barDockControlTop.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.barDockControlTop.Size = new System.Drawing.Size(1186, 24);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 1027);
-            this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(4);
-            this.barDockControlBottom.Size = new System.Drawing.Size(1355, 0);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 576);
+            this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1186, 0);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 27);
-            this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(4);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 1000);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 24);
+            this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 552);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1355, 27);
-            this.barDockControlRight.Margin = new System.Windows.Forms.Padding(4);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 1000);
+            this.barDockControlRight.Location = new System.Drawing.Point(1186, 24);
+            this.barDockControlRight.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 552);
             // 
             // barButtonItem1
             // 
@@ -673,9 +681,9 @@ namespace hammergo.MainApp
             this.xtraTabControl1.ClosePageButtonShowMode = DevExpress.XtraTab.ClosePageButtonShowMode.InActiveTabPageHeader;
             this.xtraTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xtraTabControl1.Location = new System.Drawing.Point(2, 2);
-            this.xtraTabControl1.Margin = new System.Windows.Forms.Padding(4);
+            this.xtraTabControl1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.xtraTabControl1.Name = "xtraTabControl1";
-            this.xtraTabControl1.Size = new System.Drawing.Size(1184, 996);
+            this.xtraTabControl1.Size = new System.Drawing.Size(1036, 548);
             this.xtraTabControl1.TabIndex = 0;
             this.xtraTabControl1.Visible = false;
             this.xtraTabControl1.CloseButtonClick += new System.EventHandler(this.xtraTabControl1_CloseButtonClick);
@@ -707,11 +715,11 @@ namespace hammergo.MainApp
             this.navBarItem5,
             this.navBarItem6});
             this.navBarMenu.LargeImages = this.imageList1;
-            this.navBarMenu.Location = new System.Drawing.Point(0, 27);
-            this.navBarMenu.Margin = new System.Windows.Forms.Padding(4);
+            this.navBarMenu.Location = new System.Drawing.Point(0, 24);
+            this.navBarMenu.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.navBarMenu.Name = "navBarMenu";
-            this.navBarMenu.OptionsNavPane.ExpandedWidth = 140;
-            this.navBarMenu.Size = new System.Drawing.Size(167, 1000);
+            this.navBarMenu.OptionsNavPane.ExpandedWidth = 146;
+            this.navBarMenu.Size = new System.Drawing.Size(146, 552);
             this.navBarMenu.TabIndex = 5;
             this.navBarMenu.Text = "navBarControl2";
             // 
@@ -789,10 +797,10 @@ namespace hammergo.MainApp
             // 
             this.panelControl1.Controls.Add(this.xtraTabControl1);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl1.Location = new System.Drawing.Point(167, 27);
-            this.panelControl1.Margin = new System.Windows.Forms.Padding(4);
+            this.panelControl1.Location = new System.Drawing.Point(146, 24);
+            this.panelControl1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1188, 1000);
+            this.panelControl1.Size = new System.Drawing.Size(1040, 552);
             this.panelControl1.TabIndex = 33;
             // 
             // openFileDialog1
@@ -802,25 +810,18 @@ namespace hammergo.MainApp
             // 
             // splitterControl1
             // 
-            this.splitterControl1.Location = new System.Drawing.Point(167, 27);
-            this.splitterControl1.Margin = new System.Windows.Forms.Padding(4);
+            this.splitterControl1.Location = new System.Drawing.Point(146, 24);
+            this.splitterControl1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.splitterControl1.Name = "splitterControl1";
-            this.splitterControl1.Size = new System.Drawing.Size(5, 1000);
+            this.splitterControl1.Size = new System.Drawing.Size(5, 552);
             this.splitterControl1.TabIndex = 34;
             this.splitterControl1.TabStop = false;
             // 
-            // barButtonItem39
-            // 
-            this.barButtonItem39.Caption = "日报表";
-            this.barButtonItem39.Id = 70;
-            this.barButtonItem39.Name = "barButtonItem39";
-            this.barButtonItem39.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem39_ItemClick);
-            // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1355, 1027);
+            this.ClientSize = new System.Drawing.Size(1186, 576);
             this.Controls.Add(this.splitterControl1);
             this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.navBarMenu);
@@ -828,7 +829,7 @@ namespace hammergo.MainApp
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
