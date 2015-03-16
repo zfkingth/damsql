@@ -142,7 +142,7 @@ namespace hammergo.DataExport
 
                     string outputString = "";
 
-                    outputString = time.ToString(string.Format("yyyyMMdd{0}HHmmss", " "));
+                    outputString = time.ToString("yyyyMMdd");
 
                     outputString = outputString.Remove(0, 2);
 
@@ -274,7 +274,7 @@ namespace hammergo.DataExport
 
                     string outputString = "";
 
-                    outputString = time.ToString(string.Format("yyyyMMdd{0}HHmmss", " "));
+                    outputString = time.ToString("yyyyMMdd");
                     outputString = outputString.Remove(0, 2);
 
 
