@@ -115,6 +115,17 @@ namespace hammergo.DataExport
             if (appBLL.ExistsBy_AppName(id) == false)
                 return;
 
+            var tempApp = appBLL.GetModelBy_AppName(id);
+            var type = typeBLL.GetModelBy_ApparatusTypeID(tempApp.AppTypeID.Value);
+
+            bool appendTime = true;
+            if(tempApp.AppName=="≤‚—ππ‹")
+            {
+                appendTime = false;
+            }
+
+
+
             AppIntegratedInfo appInfo = new AppIntegratedInfo(id, 0, null, null);
             appInfo.MessureParams.Sort(new MessureDisplayComparer());
 
@@ -424,9 +435,11 @@ namespace hammergo.DataExport
             }
         }
 
+        hammergo.BLL.ApparatusTypeBLL typeBLL;
         private void AppendExport_Load(object sender, EventArgs e)
         {
             appBLL = new hammergo.BLL.ApparatusBLL();
+            typeBLL = new BLL.ApparatusBLL();
         }
 
 
