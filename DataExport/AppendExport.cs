@@ -119,7 +119,7 @@ namespace hammergo.DataExport
             var type = typeBLL.GetModelBy_ApparatusTypeID(tempApp.AppTypeID.Value);
 
             bool appendTime = true;
-            if(tempApp.AppName=="测压管")
+            if (type.TypeName == "测压管")
             {
                 appendTime = false;
             }
@@ -153,7 +153,15 @@ namespace hammergo.DataExport
 
                     string outputString = "";
 
-                    outputString = time.ToString("yyyyMMdd");
+                    if (appendTime)
+                    {
+                        outputString = time.ToString(string.Format("yyyyMMdd{0}HHmmss", " "));
+                    }
+                    else
+                    {
+
+                        outputString = time.ToString("yyyyMMdd");
+                    }
 
                     outputString = outputString.Remove(0, 2);
 
@@ -195,7 +203,7 @@ namespace hammergo.DataExport
 
 
                             }
-                        
+
                         }
                         outputString += valString;
 
@@ -249,6 +257,14 @@ namespace hammergo.DataExport
             if (appBLL.ExistsBy_AppName(id) == false)
                 return;
 
+            var tempApp = appBLL.GetModelBy_AppName(id);
+            var type = typeBLL.GetModelBy_ApparatusTypeID(tempApp.AppTypeID.Value);
+
+            bool appendTime = true;
+            if (type.TypeName == "测压管")
+            {
+                appendTime = false;
+            }
 
             //从数据库中查询
 
@@ -285,7 +301,15 @@ namespace hammergo.DataExport
 
                     string outputString = "";
 
-                    outputString = time.ToString("yyyyMMdd");
+                    if (appendTime)
+                    {
+                        outputString = time.ToString(string.Format("yyyyMMdd{0}HHmmss", " "));
+                    }
+                    else
+                    {
+
+                        outputString = time.ToString("yyyyMMdd");
+                    }
                     outputString = outputString.Remove(0, 2);
 
 
@@ -329,7 +353,7 @@ namespace hammergo.DataExport
 
 
                             }
-                    
+
                         }
                         outputString += valString;
 
@@ -439,7 +463,7 @@ namespace hammergo.DataExport
         private void AppendExport_Load(object sender, EventArgs e)
         {
             appBLL = new hammergo.BLL.ApparatusBLL();
-            typeBLL = new BLL.ApparatusBLL();
+            typeBLL = new BLL.ApparatusTypeBLL();
         }
 
 
