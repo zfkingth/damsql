@@ -1,53 +1,183 @@
-﻿<Window
+﻿<Window x:Class="ConfigWPF.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" x:Class="ConfigWPF.MainWindow"
-        Title="MainWindow" Height="367.877" Width="541.984" WindowStartupLocation="CenterScreen" Background="#FFEFEFF2" Loaded="Window_Loaded_1">
+        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+        Title="MainWindow"
+        Width="541.984"
+        Height="367.877"
+        Background="#FFEFEFF2"
+        Loaded="Window_Loaded_1"
+        WindowStartupLocation="CenterScreen">
 
     <Grid x:Name="mainGrid">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition />
+            <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition Height="1.5*"/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition />
+            <RowDefinition Height="1.5*" />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
         </Grid.RowDefinitions>
-        <TextBlock x:Name="serverName" HorizontalAlignment="Right" Margin="0,0,10.2,0" TextWrapping="Wrap" Text="数据库服务器名称(或ip地址):" VerticalAlignment="Center" Height="16" Width="166" TextAlignment="Right"/>
-        <TextBox x:Name="serverNameTextBox" HorizontalAlignment="Left" Height="24" Margin="9.8,11,0,11.4" TextWrapping="Wrap" Text="(local)" VerticalAlignment="Center" Width="157" Grid.Column="1"/>
-        <TextBlock x:Name="serverName_Copy" HorizontalAlignment="Right" Margin="0,0,10.2,0" TextWrapping="Wrap" Text="数据库实例名称：" Grid.Row="1" Width="96" TextAlignment="Right" VerticalAlignment="Center"/>
-      
-        <TextBlock x:Name="serverName_Copy1" HorizontalAlignment="Right" Margin="0,0,10.2,0" TextWrapping="Wrap" Text="数据库名称：" VerticalAlignment="Center" Grid.Row="2" Height="16" Width="76" TextAlignment="Right"/>
-        <TextBox x:Name="initialCatalogTextBox" HorizontalAlignment="Left" Height="24" Margin="9.8,10.6,0,11" TextWrapping="Wrap" Text=" " VerticalAlignment="Center" Width="157" Grid.Column="1" Grid.Row="2"/>
-        <TextBlock x:Name="serverName_Copy2" HorizontalAlignment="Right" Margin="0,0,10.2,0" TextWrapping="Wrap" Text="用户名：" VerticalAlignment="Center" Grid.Row="4" Height="16" Width="76" TextAlignment="Right"/>
-        <TextBox x:Name="userNameTextBox" HorizontalAlignment="Left" Height="24" Margin="9.8,11,0,11.4" TextWrapping="Wrap" Text=" " VerticalAlignment="Center" Width="157" Grid.Column="1" Grid.Row="4"/>
-        <TextBlock x:Name="serverName_Copy3" HorizontalAlignment="Right" Margin="0,0,10.2,0" TextWrapping="Wrap" Text="密码：" VerticalAlignment="Center" Grid.Row="5" Height="16" Width="76" TextAlignment="Right"/>
-        <Button Content="测试连接" Margin="0,0,10,0" Grid.Row="6" VerticalAlignment="Center" Width="75" Grid.Column="0" HorizontalContentAlignment="Center" HorizontalAlignment="Right" Click="Button_Click_2" />
-        <Button Content="保存配置" Grid.Column="1" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="6" VerticalAlignment="Center" Width="75" Click="Button_Click_1"/>
-        <TextBlock x:Name="serverName_Copy4" HorizontalAlignment="Right" Margin="0,16.6,10.2,12.2" TextWrapping="Wrap" Text="身份验证：" VerticalAlignment="Center" Grid.Row="3" Height="16" Width="76" TextAlignment="Right"/>
-        <ComboBox x:Name="securityComboBox" HorizontalAlignment="Left" Margin="9.8,0,0,0" Grid.Row="3" VerticalAlignment="Center" Width="157" Grid.Column="1" Height="23" SelectedIndex="0" SelectionChanged="dataSourceComboBox_Copy_SelectionChanged">
-            <ComboBoxItem Content="Windows 身份验证    "/>
-            <ComboBoxItem Content="SQL Server 身份验证     "/>
-        </ComboBox>
-        <PasswordBox x:Name="passwordTextBox" HorizontalAlignment="Left" Margin="9.8,0,0,0" Grid.Row="5" VerticalAlignment="Center" Grid.Column="1" Width="157"/>
-        <StackPanel Grid.Column="1" HorizontalAlignment="Left"  Margin="0" Grid.Row="1" VerticalAlignment="Top" >
+        <TextBlock x:Name="serverName"
+                   Width="166"
+                   Height="16"
+                   Margin="0,0,10.2,0"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Center"
+                   Text="数据库服务器名称(或ip地址):"
+                   TextAlignment="Right"
+                   TextWrapping="Wrap" />
+        <TextBox x:Name="serverNameTextBox"
+                 Grid.Column="1"
+                 Width="157"
+                 Height="24"
+                 Margin="9.8,11,0,11.4"
+                 HorizontalAlignment="Left"
+                 VerticalAlignment="Center"
+                 Text="(local)"
+                 TextWrapping="Wrap" />
+        <TextBlock x:Name="serverName_Copy"
+                   Grid.Row="1"
+                   Width="96"
+                   Margin="0,0,10.2,0"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Center"
+                   Text="数据库实例名称："
+                   TextAlignment="Right"
+                   TextWrapping="Wrap" />
 
-            <ComboBox x:Name="dataSourceComboBox" HorizontalAlignment="Left" Margin="9.8,8,4,4"  VerticalAlignment="Center" Width="157"   SelectedIndex="0" SelectionChanged="namecbs_SelectionChanged" >
-                <ComboBoxItem Content="SQLEXPRESS"/>
-                <ComboBoxItem Content="默认实例"/>
-                <ComboBoxItem Content="自定义实例"/>
+        <StackPanel Grid.Row="1"
+                    Grid.Column="1"
+                    Margin="0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top">
+
+            <ComboBox x:Name="dataSourceComboBox"
+                      Width="157"
+                      Margin="9.8,8,4,4"
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Center"
+                      SelectedIndex="0"
+                      SelectionChanged="namecbs_SelectionChanged">
+                <ComboBoxItem Content="SQLEXPRESS" />
+                <ComboBoxItem Content="默认实例" />
+                <ComboBoxItem Content="自定义实例" />
             </ComboBox>
-            <TextBox x:Name="instanceNameTextBox"  HorizontalAlignment="Left" Background="LightGray"   Margin="9.8,4,4,4" TextWrapping="Wrap" VerticalAlignment="Center" Width="157" IsReadOnly="True" />
+            <TextBox x:Name="instanceNameTextBox"
+                     Width="157"
+                     Margin="9.8,4,4,4"
+                     HorizontalAlignment="Left"
+                     VerticalAlignment="Center"
+                     Background="LightGray"
+                     IsReadOnly="True"
+                     TextWrapping="Wrap" />
         </StackPanel>
 
 
 
 
 
+        <TextBlock x:Name="serverName_Copy1"
+                   Grid.Row="2"
+                   Width="76"
+                   Height="16"
+                   Margin="0,0,10.2,0"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Center"
+                   Text="数据库名称："
+                   TextAlignment="Right"
+                   TextWrapping="Wrap" />
+        <TextBox x:Name="initialCatalogTextBox"
+                 Grid.Row="2"
+                 Grid.Column="1"
+                 Width="157"
+                 Height="24"
+                 Margin="9.8,10.6,0,11"
+                 HorizontalAlignment="Left"
+                 VerticalAlignment="Center"
+                 Text=" "
+                 TextWrapping="Wrap" />
+        <TextBlock x:Name="serverName_Copy4"
+                   Grid.Row="3"
+                   Width="76"
+                   Height="16"
+                   Margin="0,16.6,10.2,12.2"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Center"
+                   Text="身份验证："
+                   TextAlignment="Right"
+                   TextWrapping="Wrap" />
+        <ComboBox x:Name="securityComboBox"
+                  Grid.Row="3"
+                  Grid.Column="1"
+                  Width="157"
+                  Height="23"
+                  Margin="9.8,0,0,0"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Center"
+                  SelectedIndex="0"
+                  SelectionChanged="dataSourceComboBox_Copy_SelectionChanged">
+            <ComboBoxItem Content="Windows 身份验证    " />
+            <ComboBoxItem Content="SQL Server 身份验证     " />
+        </ComboBox>
+        <TextBlock x:Name="serverName_Copy2"
+                   Grid.Row="4"
+                   Width="76"
+                   Height="16"
+                   Margin="0,0,10.2,0"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Center"
+                   Text="用户名："
+                   TextAlignment="Right"
+                   TextWrapping="Wrap" />
+        <TextBox x:Name="userNameTextBox"
+                 Grid.Row="4"
+                 Grid.Column="1"
+                 Width="157"
+                 Height="24"
+                 Margin="9.8,11,0,11.4"
+                 HorizontalAlignment="Left"
+                 VerticalAlignment="Center"
+                 Text=" "
+                 TextWrapping="Wrap" />
+        <TextBlock x:Name="serverName_Copy3"
+                   Grid.Row="5"
+                   Width="76"
+                   Height="16"
+                   Margin="0,0,10.2,0"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Center"
+                   Text="密码："
+                   TextAlignment="Right"
+                   TextWrapping="Wrap" />
+        <PasswordBox x:Name="passwordTextBox"
+                     Grid.Row="5"
+                     Grid.Column="1"
+                     Width="157"
+                     Margin="9.8,0,0,0"
+                     HorizontalAlignment="Left"
+                     VerticalAlignment="Center" />
+        <Button Grid.Row="6"
+                Grid.Column="0"
+                Width="75"
+                Margin="0,0,10,0"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                HorizontalContentAlignment="Center"
+                Click="Button_Click_2"
+                Content="测试连接" />
+        <Button Grid.Row="6"
+                Grid.Column="1"
+                Width="75"
+                Margin="10,0,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Click="Button_Click_1"
+                Content="保存配置" />
     </Grid>
 </Window>

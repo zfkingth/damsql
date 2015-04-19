@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ALGraph", "ALGraph\ALGraph.csproj", "{6B4D92DA-B5A5-402E-B25D-39D359960E56}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppManage", "AppManage\AppManage.csproj", "{BE1A7A44-31C8-49BA-AFCD-AD2D02C34EF5}"
@@ -50,6 +52,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImportOldData", "ImportOldData\ImportOldData.csproj", "{5B29466B-166B-4987-8161-5C40436CD063}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfigWPF", "ConfigWPF\ConfigWPF.csproj", "{E2D50737-2AF8-4086-8553-8F8F3A1E4E26}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocalDbConfig", "LocalDbConfig\LocalDbConfig.csproj", "{88693374-6EFB-49B9-8FF0-00E728B4FC74}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -257,6 +261,12 @@ Global
 		{E2D50737-2AF8-4086-8553-8F8F3A1E4E26}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E2D50737-2AF8-4086-8553-8F8F3A1E4E26}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E2D50737-2AF8-4086-8553-8F8F3A1E4E26}.Release|x86.ActiveCfg = Release|Any CPU
+		{88693374-6EFB-49B9-8FF0-00E728B4FC74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88693374-6EFB-49B9-8FF0-00E728B4FC74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88693374-6EFB-49B9-8FF0-00E728B4FC74}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{88693374-6EFB-49B9-8FF0-00E728B4FC74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88693374-6EFB-49B9-8FF0-00E728B4FC74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88693374-6EFB-49B9-8FF0-00E728B4FC74}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
