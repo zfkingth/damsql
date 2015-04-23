@@ -86,8 +86,8 @@ namespace hammergo.DataSearch
                     {
                         exporter = new hammergo.ExportLib.ExcelExportDailyReport();
                     }
-                  
-                    exporter.outputExcel(null,paramNamelist,preDic,resultTable);
+
+                    exporter.outputExcel(hammergo.GlobalConfig.PubConstant.customString, paramNamelist, preDic, resultTable);
 
 
                 }

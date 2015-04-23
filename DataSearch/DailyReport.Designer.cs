@@ -65,10 +65,9 @@ namespace hammergo.DataSearch
             // 
             this.xtraTabControl1.Dock = System.Windows.Forms.DockStyle.Left;
             this.xtraTabControl1.Location = new System.Drawing.Point(0, 0);
-            this.xtraTabControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.xtraTabControl1.Name = "xtraTabControl1";
             this.xtraTabControl1.SelectedTabPage = this.xtraTabPage1;
-            this.xtraTabControl1.Size = new System.Drawing.Size(251, 1054);
+            this.xtraTabControl1.Size = new System.Drawing.Size(220, 820);
             this.xtraTabControl1.TabIndex = 2;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage1});
@@ -84,16 +83,15 @@ namespace hammergo.DataSearch
             this.xtraTabPage1.Controls.Add(this.label1);
             this.xtraTabPage1.Controls.Add(this.c1DateEdit1);
             this.xtraTabPage1.Controls.Add(this.label11);
-            this.xtraTabPage1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(245, 1021);
+            this.xtraTabPage1.Size = new System.Drawing.Size(214, 791);
             this.xtraTabPage1.Text = "检索选项";
             // 
             // label4
             // 
-            this.label4.Location = new System.Drawing.Point(106, 314);
+            this.label4.Location = new System.Drawing.Point(93, 244);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(71, 24);
+            this.label4.Size = new System.Drawing.Size(62, 19);
             this.label4.TabIndex = 63;
             this.label4.Text = "天";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -105,36 +103,36 @@ namespace hammergo.DataSearch
             0,
             0,
             0});
-            this.timesliceEdit.Location = new System.Drawing.Point(17, 314);
+            this.timesliceEdit.Location = new System.Drawing.Point(15, 244);
+            this.timesliceEdit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.timesliceEdit.Name = "timesliceEdit";
             this.timesliceEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.timesliceEdit.Properties.Mask.EditMask = "n";
-            this.timesliceEdit.Size = new System.Drawing.Size(83, 24);
+            this.timesliceEdit.Properties.Mask.EditMask = "f";
+            this.timesliceEdit.Size = new System.Drawing.Size(73, 20);
             this.timesliceEdit.TabIndex = 62;
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(14, 278);
+            this.label2.Location = new System.Drawing.Point(12, 216);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(207, 24);
+            this.label2.Size = new System.Drawing.Size(181, 19);
             this.label2.TabIndex = 61;
             this.label2.Text = "时间粒度(最小的时间间隔):";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // textBoxFilterVariable
             // 
-            this.textBoxFilterVariable.Location = new System.Drawing.Point(84, 369);
-            this.textBoxFilterVariable.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBoxFilterVariable.Location = new System.Drawing.Point(74, 287);
             this.textBoxFilterVariable.Name = "textBoxFilterVariable";
-            this.textBoxFilterVariable.Size = new System.Drawing.Size(107, 24);
+            this.textBoxFilterVariable.Size = new System.Drawing.Size(94, 20);
             this.textBoxFilterVariable.TabIndex = 58;
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(14, 364);
+            this.label3.Location = new System.Drawing.Point(12, 283);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(86, 35);
+            this.label3.Size = new System.Drawing.Size(75, 27);
             this.label3.TabIndex = 57;
             this.label3.Text = "过滤成果:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -142,8 +140,7 @@ namespace hammergo.DataSearch
             // c1DateEdit2
             // 
             this.c1DateEdit2.EditValue = null;
-            this.c1DateEdit2.Location = new System.Drawing.Point(17, 194);
-            this.c1DateEdit2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.c1DateEdit2.Location = new System.Drawing.Point(15, 151);
             this.c1DateEdit2.Name = "c1DateEdit2";
             this.c1DateEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -157,7 +154,7 @@ namespace hammergo.DataSearch
             this.c1DateEdit2.Properties.EditFormat.FormatString = "g";
             this.c1DateEdit2.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.c1DateEdit2.Properties.Mask.EditMask = "g";
-            this.c1DateEdit2.Size = new System.Drawing.Size(174, 24);
+            this.c1DateEdit2.Size = new System.Drawing.Size(152, 20);
             this.c1DateEdit2.TabIndex = 54;
             // 
             // dateCMS2
@@ -165,20 +162,20 @@ namespace hammergo.DataSearch
             this.dateCMS2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1});
             this.dateCMS2.Name = "dateCMS";
-            this.dateCMS2.Size = new System.Drawing.Size(109, 28);
+            this.dateCMS2.Size = new System.Drawing.Size(101, 26);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(108, 24);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(100, 22);
             this.toolStripMenuItem1.Text = "粘贴";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(14, 150);
+            this.label1.Location = new System.Drawing.Point(12, 117);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(86, 24);
+            this.label1.Size = new System.Drawing.Size(75, 19);
             this.label1.TabIndex = 53;
             this.label1.Text = "结束日期:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -186,8 +183,7 @@ namespace hammergo.DataSearch
             // c1DateEdit1
             // 
             this.c1DateEdit1.EditValue = null;
-            this.c1DateEdit1.Location = new System.Drawing.Point(17, 102);
-            this.c1DateEdit1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.c1DateEdit1.Location = new System.Drawing.Point(15, 79);
             this.c1DateEdit1.Name = "c1DateEdit1";
             this.c1DateEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -201,7 +197,7 @@ namespace hammergo.DataSearch
             this.c1DateEdit1.Properties.EditFormat.FormatString = "g";
             this.c1DateEdit1.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.c1DateEdit1.Properties.Mask.EditMask = "g";
-            this.c1DateEdit1.Size = new System.Drawing.Size(174, 24);
+            this.c1DateEdit1.Size = new System.Drawing.Size(152, 20);
             this.c1DateEdit1.TabIndex = 31;
             // 
             // dateCMS1
@@ -209,20 +205,20 @@ namespace hammergo.DataSearch
             this.dateCMS1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.pasteDateMenuItem1});
             this.dateCMS1.Name = "dateCMS";
-            this.dateCMS1.Size = new System.Drawing.Size(109, 28);
+            this.dateCMS1.Size = new System.Drawing.Size(101, 26);
             // 
             // pasteDateMenuItem1
             // 
             this.pasteDateMenuItem1.Name = "pasteDateMenuItem1";
-            this.pasteDateMenuItem1.Size = new System.Drawing.Size(108, 24);
+            this.pasteDateMenuItem1.Size = new System.Drawing.Size(100, 22);
             this.pasteDateMenuItem1.Text = "粘贴";
             this.pasteDateMenuItem1.Click += new System.EventHandler(this.pasteDateMenuItem1_Click);
             // 
             // label11
             // 
-            this.label11.Location = new System.Drawing.Point(14, 58);
+            this.label11.Location = new System.Drawing.Point(12, 45);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(86, 24);
+            this.label11.Size = new System.Drawing.Size(75, 19);
             this.label11.TabIndex = 30;
             this.label11.Text = "起始日期:";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -232,12 +228,12 @@ namespace hammergo.DataSearch
             this.dateCMS3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem2});
             this.dateCMS3.Name = "dateCMS";
-            this.dateCMS3.Size = new System.Drawing.Size(109, 28);
+            this.dateCMS3.Size = new System.Drawing.Size(101, 26);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(108, 24);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(100, 22);
             this.toolStripMenuItem2.Text = "粘贴";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
@@ -246,24 +242,23 @@ namespace hammergo.DataSearch
             this.appSelector1.Dock = System.Windows.Forms.DockStyle.Top;
             this.appSelector1.ExeButtonEnable = true;
             this.appSelector1.ExeButtonText = "数据检索";
-            this.appSelector1.Location = new System.Drawing.Point(251, 0);
-            this.appSelector1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.appSelector1.Location = new System.Drawing.Point(220, 0);
+            this.appSelector1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.appSelector1.Name = "appSelector1";
             this.appSelector1.ShowAllAppMenuVisible = false;
-            this.appSelector1.Size = new System.Drawing.Size(919, 379);
+            this.appSelector1.Size = new System.Drawing.Size(804, 295);
             this.appSelector1.TabIndex = 3;
             this.appSelector1.ShowDataEvent += new System.EventHandler<hammergo.Utility.AppSearchEventArgs>(this.appSelector1_ShowDataEvent);
             this.appSelector1.SearchExeClick += new System.EventHandler<hammergo.CommonControl.AppsEventArgs>(this.appSelector1_SearchExeClick);
             // 
             // DailyReport
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.appSelector1);
             this.Controls.Add(this.xtraTabControl1);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "DailyReport";
-            this.Size = new System.Drawing.Size(1170, 1054);
+            this.Size = new System.Drawing.Size(1024, 820);
             this.Load += new System.EventHandler(this.StatisticsReport_Load);
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
             this.xtraTabControl1.ResumeLayout(false);
